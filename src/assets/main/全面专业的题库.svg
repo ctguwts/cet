@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="77px" height="78px" viewBox="0 0 77 78" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>gre_b11</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="86.9740791%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0.125452899" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="1.16510116%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="gre首页" transform="translate(-636.000000, -303.000000)" stroke-width="7">
+            <g id="gre_b11" transform="translate(640.000000, 307.000000)">
+                <polygon id="Path-2" stroke="url(#linearGradient-1)" opacity="0.320647321" points="39.9502292 24.4578313 2.52272528e-16 48.0339461 0 57.2215035 30.7048593 69.6833542 68.8438214 48.0339461 68.8438214 36.6186401"></polygon>
+                <polygon id="Path-2-Copy-3" stroke="url(#linearGradient-2)" opacity="0.897098214" points="39.9502292 11.8072289 2.52272528e-16 35.3833437 0 44.5709011 30.7048593 57.0327518 68.8438214 35.3833437 68.8438214 23.9680377"></polygon>
+                <polygon id="Path-2-Copy-4" stroke="url(#linearGradient-3)" points="39.9502292 -1.70044415e-14 2.52272528e-16 23.5761148 0 32.7636722 30.7048593 45.2255229 68.8438214 23.5761148 68.8438214 12.1608087"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

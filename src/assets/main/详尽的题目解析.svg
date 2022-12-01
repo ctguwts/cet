@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 21.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="图层_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 77 70" style="enable-background:new 0 0 77 70;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:url(#Rectangle-11_1_);}
+	.st1{fill:url(#Path-4_1_);}
+	.st2{fill:#FFFFFF;}
+</style>
+<title>gre_b13</title>
+<desc>Created with Sketch.</desc>
+<g id="首页">
+	<g id="gre首页" transform="translate(-1214.000000, -307.000000)">
+		<g id="gre_b13" transform="translate(1214.000000, 306.000000)">
+			<linearGradient id="Rectangle-11_1_" gradientUnits="userSpaceOnUse" x1="2.8969" y1="21.1053" x2="75.5927" y2="60.6791">
+				<stop  offset="0" style="stop-color:#FFFFFF"/>
+				<stop  offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/>
+			</linearGradient>
+			<path id="Rectangle-11" class="st0" d="M53,63.5v-55H7.5v55H53z M56.5,70.5H4c-1.9,0-3.5-1.6-3.5-3.5V5c0-1.9,1.6-3.5,3.5-3.5
+				h52.5C58.4,1.5,60,3.1,60,5v62C60,68.9,58.4,70.5,56.5,70.5z"/>
+			
+				<linearGradient id="Path-4_1_" gradientUnits="userSpaceOnUse" x1="-1407.8584" y1="2761.7539" x2="-1406.3132" y2="2761.1865" gradientTransform="matrix(30.653 -51.0151 -20.5536 -12.3499 99933.6953 -37637.3008)">
+				<stop  offset="0" style="stop-color:#FFFFFF;stop-opacity:0"/>
+				<stop  offset="1" style="stop-color:#FFFFFF"/>
+			</linearGradient>
+			<path id="Path-4" class="st1" d="M41.1,50.9l6.2-0.6l21.1-35.1l-8.6-5.1L38.8,45.2L41.1,50.9z M31.9,43L55.7,3.5
+				c1-1.7,3.1-2.2,4.8-1.2L75,11c1.7,1,2.2,3.1,1.2,4.8L52.4,55.4c-0.6,0.9-1.5,1.6-2.6,1.7l-10.5,1.1c-1.5,0.2-3-0.7-3.6-2.2
+				l-4-9.8C31.2,45.2,31.3,44,31.9,43z"/>
+			<path id="Path-4-Copy-2" class="st2" d="M17.6,24c-1.9,0-3.5-1.6-3.5-3.5s1.6-3.5,3.5-3.5h15.9c1.9,0,3.5,1.6,3.5,3.5
+				S35.5,24,33.6,24H17.6z"/>
+			<path id="Path-4-Copy-3" class="st2" d="M17.6,39c-1.9,0-3.5-1.6-3.5-3.5c0-1.9,1.6-3.5,3.5-3.5H26c1.9,0,3.5,1.6,3.5,3.5
+				c0,1.9-1.6,3.5-3.5,3.5H17.6z"/>
+		</g>
+	</g>
+</g>
+</svg>

@@ -1,0 +1,32 @@
+.card {
+  height: 200px;
+  border: 1px solid #e7ecf1;
+  box-shadow: 0 4px 12px 0 #dae0e9;
+  padding: 25px 35px;
+  display: inline-block;
+  flex: 1;
+  margin-right: 30px;
+  box-sizing: border-box;
+
+  &:last-child {
+    margin-right: 0px;
+  }
+}
+
+.title {
+  color: rgb(73, 73, 73);
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 14px;
+  color: rgb(128, 128, 128);
+  margin-bottom: 35px;
+}
+
+.jumpButton {
+  font-size: 16px;
+  color: rgb(49, 138, 254);
+  cursor: pointer;
+}

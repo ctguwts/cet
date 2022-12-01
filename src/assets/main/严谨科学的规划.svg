@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="71px" height="78px" viewBox="0 0 71 78" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.2 (67145) - http://www.bohemiancoding.com/sketch -->
+    <title>gre_b12</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <linearGradient x1="52.5001259%" y1="113.861052%" x2="65.5789611%" y2="26.5083786%" id="linearGradient-1">
+            <stop stop-color="#FFFFFF" stop-opacity="0.242753623" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="83.6024664%" y1="8.33654034%" x2="7.61232848%" y2="81.3688771%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" stop-opacity="0.24" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="18.8927926%" y1="100%" x2="68.0820287%" y2="0%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" stop-opacity="0.242753623" offset="0%"></stop>
+            <stop stop-color="#FFFFFF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="首页" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="gre首页" transform="translate(-926.000000, -302.000000)" stroke-width="7">
+            <g id="gre_b12" transform="translate(923.000000, 306.000000)">
+                <path d="M47.0044299,51.2114667 C62.0327277,49.413618 73.1531532,42.9783774 73.1531532,35.3153153 C73.1531532,26.2598356 57.6242909,18.9189189 38.4684685,18.9189189 C19.3126461,18.9189189 3.78378378,26.2598356 3.78378378,35.3153153 C3.78378378,40.2637407 8.42092975,44.7001724 15.7530704,47.7065026" id="Oval-2" stroke="url(#linearGradient-1)" transform="translate(38.468468, 35.065193) rotate(-270.000000) translate(-38.468468, -35.065193) "></path>
+                <path d="M28.6000946,19.5920838 C14.2515579,21.6014929 3.78378378,27.8805235 3.78378378,35.3153153 C3.78378378,44.370795 19.3126461,51.7117117 38.4684685,51.7117117 C57.6242909,51.7117117 73.1531532,44.370795 73.1531532,35.3153153 C73.1531532,30.24259 68.2801195,25.707903 60.626266,22.7003008" id="Oval-2" stroke="url(#linearGradient-2)" transform="translate(38.468468, 35.651898) rotate(-208.000000) translate(-38.468468, -35.651898) "></path>
+                <path d="M45.5109728,51.3735131 C61.290104,49.8350947 73.1531532,43.2301128 73.1531532,35.3153153 C73.1531532,26.2598356 57.6242909,18.9189189 38.4684685,18.9189189 C19.3126461,18.9189189 3.78378378,26.2598356 3.78378378,35.3153153 C3.78378378,40.1793974 8.26420149,44.5487904 15.3805114,47.5515368" id="Oval-2" stroke="url(#linearGradient-3)" transform="translate(38.468468, 35.146216) rotate(-150.000000) translate(-38.468468, -35.146216) "></path>
+            </g>
+        </g>
+    </g>
+</svg>

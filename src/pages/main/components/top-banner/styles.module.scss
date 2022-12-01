@@ -1,0 +1,53 @@
+.topBanner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(76, 96, 252);
+  background-image: linear-gradient(
+    to bottom,
+    rgb(77, 97, 253),
+    rgb(82, 58, 252)
+  );
+  height: 430px;
+  cursor: default;
+
+  .mainText {
+    position: absolute;
+    font-size: 450px;
+    font-weight: 500;
+    color: rgb(80, 116, 253);
+    z-index: 0;
+  }
+
+  .title {
+    position: relative;
+    z-index: 2;
+    font-size: 42px;
+    color: white;
+    margin-bottom: 50px;
+  }
+
+  .content {
+    position: relative;
+    color: white;
+    font-size: 20px;
+    display: flex;
+
+    .block {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-right: 145px;
+
+      &:last-child {
+        margin-right: 0px;
+      }
+
+      .blockTitle {
+        margin-bottom: 45px;
+      }
+    }
+  }
+}
