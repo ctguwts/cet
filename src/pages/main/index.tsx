@@ -1,15 +1,21 @@
 import React, { memo, Suspense } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import TopBanner from './components/top-banner';
 import Card from './components/card';
 import Menu from '@/components/menu';
+
+import { VOCABULARYCOMPREHENSION, LONGREADING, CAREFULREADING } from '@/const';
 import styles from './styles.module.scss';
 
-interface Props {
-  name: string;
-  age: number;
-}
-const Main: React.FC<Props> = (prop) => {
-  const { name, age, what } = prop;
+const Main: React.FC = () => {
+  const navigate = useNavigate();
+
+  const jumpToShortNews = () => {
+    console.log('准备跳转', navigate);
+    navigate('/list');
+  };
+
   return (
     <div>
       <Menu />
@@ -21,14 +27,17 @@ const Main: React.FC<Props> = (prop) => {
             <Card
               title='短篇新闻'
               description='我是description我是description我是description'
+              jumpParam='shortNews'
             />
             <Card
               title='长对话'
               description='我是description我是description我是description'
+              jumpParam='longConversation'
             />
             <Card
               title='短文理解'
               description='我是description我是description我是description'
+              jumpParam='shortReading'
             />
           </div>
         </div>
@@ -38,14 +47,17 @@ const Main: React.FC<Props> = (prop) => {
             <Card
               title='选词填空'
               description='我是description我是description我是description'
+              jumpParam={VOCABULARYCOMPREHENSION}
             />
             <Card
               title='长篇阅读'
               description='我是description我是description我是description'
+              jumpParam={LONGREADING}
             />
             <Card
               title='仔细阅读'
               description='我是description我是description我是description'
+              jumpParam={CAREFULREADING}
             />
           </div>
         </div>

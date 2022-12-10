@@ -309,7 +309,7 @@ module.exports = function (webpackEnv) {
       // for React Native Web.
       extensions: [...paths.moduleFileExtensions
         .map(ext => `.${ext}`)
-        .filter(ext => useTypeScript || !ext.includes('ts')), ...[".js", ".ts", ".tsx", ".jsx"],
+        .filter(ext => useTypeScript || !ext.includes('ts')), ...[".js", ".ts", ".tsx", ".jsx","scss"],
       ],
       alias: {
         // Support React Native Web

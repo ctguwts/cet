@@ -1,0 +1,58 @@
+.list {
+  background-color: rgb(242, 243, 245);
+}
+
+.bread {
+  background-color: rgb(242, 243, 245);
+  font-size: 14px;
+}
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1200px;
+  display: flex;
+
+  .left {
+    background-color: white;
+    width: 910px;
+    border-radius: 4px;
+    margin-right: 20px;
+    padding: 0px 40px;
+
+    .yearSelectButtons {
+      width: 220px;
+      display: flex;
+      justify-content: space-between;
+      margin: 15px 0px;
+    }
+  }
+
+  .right {
+    .ranking {
+      margin-top: 20px;
+      background-color: white;
+      border-radius: 8px;
+      width: 268px;
+      height: 600px;
+    }
+  }
+}
+
+.oneYear {
+  .yearTitle {
+    font-size: 20px;
+    color: #494949;
+    margin-bottom: 20px;
+  }
+  .groupCards {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .infoCard {
+      background-color: green;
+      margin-bottom: 30px;
+    }
+  }
+}

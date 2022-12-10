@@ -1,19 +1,21 @@
-.menu{
+.menu {
   height: 70px;
   background-color: white;
   display: flex;
   align-items: center;
 }
 
-.buttonGroup{
-  margin-left: 210px;
+.buttonGroup {
+  margin-left: auto;
+  margin-right: auto;
+  width: 1261px;
   height: 34px;
   display: flex;
   font-size: 16px;
-  color: rgb(73,73,73);
+  color: rgb(73, 73, 73);
 }
 
-.button{
+.button {
   // 设置z-index以防被CET挡住
   z-index: 2;
   height: 34px;
@@ -23,9 +25,9 @@
   cursor: pointer;
   border-bottom: 2px solid white;
 
-  &:hover{
-    border-bottom: 2px solid rgb(87,76,251); 
-    color: rgb(86,90,252);
+  &:hover {
+    border-bottom: 2px solid rgb(87, 76, 251);
+    color: rgb(86, 90, 252);
     transition-duration: 1s;
   }
 }

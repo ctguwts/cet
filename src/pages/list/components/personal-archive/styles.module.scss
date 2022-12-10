@@ -1,0 +1,74 @@
+.personalArchive {
+  height: 330px;
+  width: 270px;
+}
+
+.cover {
+  height: 330px;
+  width: 270px;
+  position: relative;
+  text-align: center;
+  //层叠上下文：若不设置cover（父亲）的z-index，则儿子伪元素（它的z-index为负）位于普通元素之下。
+  //若设置cover(父亲）的z-index为0或正，那么父亲首先大于普通元素，然后儿子即使为负，也不会被普通元素遮盖。
+  //z-index：auto相当于没有设置，不会创建新的层叠上下文。必须设置为数值。
+  z-index: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+//一共两个蒙版，第一层是图片（before），第二层是黑色纯色（after）
+.cover::before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  width: 270px;
+  background: transparent url(../../../../assets/list/person.png);
+  filter: blur(4px);
+  z-index: -4;
+}
+.cover::after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  width: 270px;
+  background: rgba(51, 51, 51, 0.8);
+  z-index: -4;
+}
+
+.guildText {
+  color: white;
+  font-size: 20px;
+  height: 60px;
+  width: 160px;
+  margin-bottom: 40px;
+  // https://blog.csdn.net/liuxiao723846/article/details/118994673,默认情况下
+  // div中的换行是不会被识别的，只有<br>才会被识别，如果配置了pre-wrap，会识别换行符
+  white-space: pre-wrap;
+}
+
+.buttonGroup {
+  .roundedButton {
+    margin-bottom: 15px;
+
+    .loginButton {
+      background-color: rgb(111, 174, 254);
+      &:hover {
+        background-color: rgb(115, 161, 216) !important;
+        cursor: pointer;
+      }
+    }
+    .registerButton {
+      background-color: rgb(247, 177, 23) !important;
+      &:hover {
+        background-color: rgb(210, 151, 19) !important;
+        cursor: pointer;
+      }
+    }
+  }
+}

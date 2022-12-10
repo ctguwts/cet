@@ -1,0 +1,46 @@
+.ranking {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  padding: 30px 20px 0px;
+}
+
+.title {
+  color: #494949;
+  font-size: 16px;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.rankingItem {
+  height: 50px;
+  color: #808080;
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  &::after {
+    content: ' ';
+    background-color: rgb(228, 228, 228);
+    display: inline-block;
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    width: 100%;
+  }
+
+  .serialNumber {
+    font-size: 16px;
+    width: 30px;
+    text-align: center;
+  }
+  .text {
+    font-size: 14px;
+    cursor: pointer;
+    &:hover {
+      color: rgb(90, 142, 254);
+    }
+  }
+}

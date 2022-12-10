@@ -1,13 +1,10 @@
 import React from 'react';
-
-// import { Provider } from "react-redux";
-// import store from "./store";
-
-// import HYMain from './pages/main';
-import Main from './pages/main';
+import { NavLink, useRoutes, Navigate } from 'react-router-dom';
+import routes from './routes';
 
 function App() {
-  return <Main />;
+  const element = useRoutes(routes);
+  return <div>{element}</div>;
 }
 
 export default App;

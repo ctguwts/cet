@@ -1,0 +1,490 @@
+//TAB是词汇理解(vocabulary_comprehension)、长篇阅读(long_reading)仔细阅读(careful_reading)
+//卡片完整名称：2022年6月卷一，6套卷子一组，每组标题是年份
+export const vocabulary_comprehension_reading_list = [
+  {
+    year: 2022,
+    groupTitle: '2022年',
+    list: [
+      {
+        year: 2022,
+        month: 6,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/xl1GLvAcDqgICsU.jpg',
+        cardType: '选词填空',
+      },
+      {
+        year: 2022,
+        month: 6,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/LKMxab5RAtgEvQp.jpg',
+        cardType: '选词填空',
+      },
+      {
+        year: 2022,
+        month: 6,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/2SMragWyoTUftz7.jpg',
+        cardType: '选词填空',
+      },
+      {
+        year: 2022,
+        month: 12,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/1KRGzPA2muU4ipT.jpg',
+        cardType: '选词填空',
+      },
+      {
+        year: 2022,
+        month: 12,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/j6P2zwNDifumcs3.jpg',
+        cardType: '选词填空',
+      },
+      {
+        year: 2022,
+        month: 12,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/eAHjLkvhobrO62S.jpg',
+        cardType: '选词填空',
+      },
+    ],
+  },
+  {
+    year: 2021,
+    groupTitle: '2022年',
+    list: [
+      {
+        year: 2021,
+        month: 6,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/vmecYCKWHyA4R5P.jpg',
+        cardType: '选词填空',
+      },
+      {
+        year: 2021,
+        month: 6,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/N5RuQPb3O7dHiya.jpg',
+        cardType: '选词填空',
+      },
+      {
+        year: 2021,
+        month: 6,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/25UpxW8zed6i4rR.jpg',
+        cardType: '选词填空',
+      },
+      {
+        year: 2021,
+        month: 12,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/ISp8NKdnXDM1Bgm.jpg',
+        cardType: '选词填空',
+      },
+      {
+        year: 2021,
+        month: 12,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/5pP3jIruC6hd47Y.jpg',
+        cardType: '选词填空',
+      },
+      {
+        year: 2021,
+        month: 12,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/QstrpXHLjM4NDZY.jpg',
+        cardType: '选词填空',
+      },
+    ],
+  },
+  {
+    year: 2020,
+    groupTitle: '2020年',
+    list: [
+      {
+        year: 2020,
+        month: 6,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/IXSexUY3k87FsEH.jpg',
+        cardType: '选词填空',
+      },
+      {
+        year: 2020,
+        month: 6,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/gqFt19Qhy36j2la.jpg',
+        cardType: '选词填空',
+      },
+      {
+        year: 2020,
+        month: 6,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/A6xZ97KGi53spoS.jpg',
+        cardType: '选词填空',
+      },
+      {
+        year: 2020,
+        month: 12,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/zkptKaYuJfsq7C6.jpg',
+        cardType: '选词填空',
+      },
+      {
+        year: 2020,
+        month: 12,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/PwHQab4tAuDinUe.jpg',
+        cardType: '选词填空',
+      },
+      {
+        year: 2020,
+        month: 12,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/LPysQTqDNBSE1oY.jpg',
+        cardType: '选词填空',
+      },
+    ],
+  },
+];
+
+export const long_reading_list = [
+  {
+    year: 2022,
+    groupTitle: '2022年',
+    list: [
+      {
+        year: 2022,
+        month: 6,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/IXSexUY3k87FsEH.jpg',
+        cardType: '长篇阅读',
+      },
+      {
+        year: 2022,
+        month: 6,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/gqFt19Qhy36j2la.jpg',
+        cardType: '长篇阅读',
+      },
+      {
+        year: 2022,
+        month: 6,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/A6xZ97KGi53spoS.jpg',
+        cardType: '长篇阅读',
+      },
+      {
+        year: 2022,
+        month: 12,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/zkptKaYuJfsq7C6.jpg',
+        cardType: '长篇阅读',
+      },
+      {
+        year: 2022,
+        month: 12,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/PwHQab4tAuDinUe.jpg',
+        cardType: '长篇阅读',
+      },
+      {
+        year: 2022,
+        month: 12,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/LPysQTqDNBSE1oY.jpg',
+        cardType: '长篇阅读',
+      },
+    ],
+  },
+  {
+    year: 2021,
+    groupTitle: '2021年',
+    list: [
+      {
+        year: 2021,
+        month: 6,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/xl1GLvAcDqgICsU.jpg',
+        cardType: '长篇阅读',
+      },
+      {
+        year: 2021,
+        month: 6,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/LKMxab5RAtgEvQp.jpg',
+        cardType: '长篇阅读',
+      },
+      {
+        year: 2021,
+        month: 6,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/2SMragWyoTUftz7.jpg',
+        cardType: '长篇阅读',
+      },
+      {
+        year: 2021,
+        month: 12,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/1KRGzPA2muU4ipT.jpg',
+        cardType: '长篇阅读',
+      },
+      {
+        year: 2021,
+        month: 12,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/j6P2zwNDifumcs3.jpg',
+        cardType: '长篇阅读',
+      },
+      {
+        year: 2021,
+        month: 12,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/eAHjLkvhobrO62S.jpg',
+        cardType: '长篇阅读',
+      },
+    ],
+  },
+  {
+    year: 2020,
+    groupTitle: '2020年',
+    list: [
+      {
+        year: 2020,
+        month: 6,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/vmecYCKWHyA4R5P.jpg',
+        cardType: '长篇阅读',
+      },
+      {
+        year: 2020,
+        month: 6,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/N5RuQPb3O7dHiya.jpg',
+        cardType: '长篇阅读',
+      },
+      {
+        year: 2020,
+        month: 6,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/25UpxW8zed6i4rR.jpg',
+        cardType: '长篇阅读',
+      },
+      {
+        year: 2020,
+        month: 12,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/ISp8NKdnXDM1Bgm.jpg',
+        cardType: '长篇阅读',
+      },
+      {
+        year: 2020,
+        month: 12,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/5pP3jIruC6hd47Y.jpg',
+        cardType: '长篇阅读',
+      },
+      {
+        year: 2020,
+        month: 12,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/QstrpXHLjM4NDZY.jpg',
+        cardType: '长篇阅读',
+      },
+    ],
+  },
+];
+
+export const careful_reading = [
+  {
+    year: 2022,
+    groupTitle: '2022年',
+    list: [
+      {
+        year: 2022,
+        month: 6,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/vmecYCKWHyA4R5P.jpg',
+        cardType: '仔细阅读',
+      },
+      {
+        year: 2022,
+        month: 6,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/N5RuQPb3O7dHiya.jpg',
+        cardType: '仔细阅读',
+      },
+      {
+        year: 2022,
+        month: 6,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/25UpxW8zed6i4rR.jpg',
+        cardType: '仔细阅读',
+      },
+      {
+        year: 2022,
+        month: 12,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/ISp8NKdnXDM1Bgm.jpg',
+        cardType: '仔细阅读',
+      },
+      {
+        year: 2022,
+        month: 12,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/5pP3jIruC6hd47Y.jpg',
+        cardType: '仔细阅读',
+      },
+      {
+        year: 2022,
+        month: 12,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/QstrpXHLjM4NDZY.jpg',
+        cardType: '仔细阅读',
+      },
+    ],
+  },
+  {
+    year: 2021,
+    groupTitle: '2021年',
+    list: [
+      {
+        year: 2021,
+        month: 6,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/IXSexUY3k87FsEH.jpg',
+        cardType: '仔细阅读',
+      },
+      {
+        year: 2021,
+        month: 6,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/gqFt19Qhy36j2la.jpg',
+        cardType: '仔细阅读',
+      },
+      {
+        year: 2021,
+        month: 6,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/A6xZ97KGi53spoS.jpg',
+        cardType: '仔细阅读',
+      },
+      {
+        year: 2021,
+        month: 12,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/zkptKaYuJfsq7C6.jpg',
+        cardType: '仔细阅读',
+      },
+      {
+        year: 2021,
+        month: 12,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/PwHQab4tAuDinUe.jpg',
+        cardType: '仔细阅读',
+      },
+      {
+        year: 2021,
+        month: 12,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/LPysQTqDNBSE1oY.jpg',
+        cardType: '仔细阅读',
+      },
+    ],
+  },
+  {
+    year: 2020,
+    groupTitle: '2020年',
+    list: [
+      {
+        year: 2020,
+        month: 6,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/xl1GLvAcDqgICsU.jpg',
+        cardType: '仔细阅读',
+      },
+      {
+        year: 2020,
+        month: 6,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/LKMxab5RAtgEvQp.jpg',
+        cardType: '仔细阅读',
+      },
+      {
+        year: 2020,
+        month: 6,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/2SMragWyoTUftz7.jpg',
+        cardType: '仔细阅读',
+      },
+      {
+        year: 2020,
+        month: 12,
+        version: 1,
+        img: 'https://s2.loli.net/2022/12/09/1KRGzPA2muU4ipT.jpg',
+        cardType: '仔细阅读',
+      },
+      {
+        year: 2020,
+        month: 12,
+        version: 2,
+        img: 'https://s2.loli.net/2022/12/09/j6P2zwNDifumcs3.jpg',
+        cardType: '仔细阅读',
+      },
+      {
+        year: 2020,
+        month: 12,
+        version: 3,
+        img: 'https://s2.loli.net/2022/12/09/eAHjLkvhobrO62S.jpg',
+        cardType: '仔细阅读',
+      },
+    ],
+  },
+];
+
+export const week_wrong_ranking_reading = [
+  {
+    title: '2021年6月选词填空(卷二)',
+    jumpLink: 'www.baidu.com',
+  },
+  {
+    title: '2018年12月长篇阅读(卷三)',
+    jumpLink: 'www.baidu.com',
+  },
+  {
+    title: '2017年6月仔细阅读(卷一)',
+    jumpLink: 'www.baidu.com',
+  },
+  {
+    title: '2017年12月长篇阅读(卷二)',
+    jumpLink: 'www.baidu.com',
+  },
+  {
+    title: '2015年6月仔细阅读(卷三)',
+    jumpLink: 'www.baidu.com',
+  },
+  {
+    title: '2009年12月选词填空(卷一)',
+    jumpLink: 'www.baidu.com',
+  },
+  {
+    title: '2021年6月选词填空(卷二)',
+    jumpLink: 'www.baidu.com',
+  },
+  {
+    title: '2021年6月长篇阅读(卷一)',
+    jumpLink: 'www.baidu.com',
+  },
+  {
+    title: '2011年12月选词填空(卷二)',
+    jumpLink: 'www.baidu.com',
+  },
+  {
+    title: '2021年6月选词填空(卷二)',
+    jumpLink: 'www.baidu.com',
+  },
+];
+export const list_data = {
+  vocabulary_comprehension_reading_list,
+  long_reading_list,
+  careful_reading,
+};
