@@ -1,0 +1,35 @@
+.tootip {
+  font-size: 16px;
+  //这里的max-width和width只是初始值，具体值在行内样式中设置
+  max-width: 0;
+  width: fit-content;
+
+  :global {
+    .ant-tooltip-content {
+      // width: 100%;
+
+      .ant-tooltip-arrow {
+        //气泡下面的小角
+        display: none;
+      }
+      .ant-tooltip-inner {
+        background-color: white;
+        box-shadow: 0 0 15px 0 rgba(47, 54, 62, 0.25);
+        color: rgb(49, 49, 49);
+        padding: 13px 13px;
+      }
+    }
+  }
+}
+
+.phase {
+  cursor: pointer;
+  em {
+    font-weight: 700;
+    font-style: normal;
+  }
+}
+
+.activePhase {
+  color: rgb(46, 108, 198);
+}

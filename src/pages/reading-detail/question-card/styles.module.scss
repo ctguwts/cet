@@ -1,0 +1,81 @@
+.questionCard {
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  padding: 20px 50px;
+}
+
+//交卷前的选项
+.questionEnglish {
+  color: rgb(73, 73, 73);
+  font-size: 18px;
+  margin: 15px 0px;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+
+  .selected {
+    background-color: rgb(241, 246, 255);
+    border: 1px solid rgb(90, 142, 254);
+    span {
+      color: #4c91ff !important;
+    }
+  }
+}
+
+//交卷后的选项
+.wrongOptions {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  .wrong {
+    border: 1px solid rgb(251, 204, 199);
+    background-color: rgb(254, 242, 240) !important;
+  }
+  .correct {
+    border: 1px solid rgb(186, 236, 145);
+    background-color: rgb(246, 255, 237) !important;
+  }
+}
+
+.item {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  margin-left: -30px;
+  padding-left: 30px;
+  border-radius: 8px;
+  position: relative;
+
+  span {
+    font-size: 16px;
+    color: #808080;
+  }
+
+  &:hover {
+    span {
+      color: #4c91ff !important;
+    }
+  }
+}
+
+.analysis {
+  color: gray;
+  cursor: default;
+  .box {
+    margin-bottom: 20px;
+    .tag {
+      margin-bottom: 10px;
+    }
+    .text {
+      u {
+        // text-decoration-line: none;
+        font-weight: 500;
+        font-style: italic;
+        // color: black;
+      }
+    }
+  }
+}

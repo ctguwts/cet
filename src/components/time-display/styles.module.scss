@@ -1,0 +1,29 @@
+.timeWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  :global {
+    .anticon-clock-circle {
+      color: rgb(50, 50, 50);
+    }
+  }
+
+  .timeText {
+    margin-left: 10px;
+    color: rgb(50, 50, 50);
+  }
+}
+
+.timeWrapper:hover {
+  :global {
+    .anticon-clock-circle {
+      color: white;
+    }
+  }
+
+  .timeText {
+    color: white;
+  }
+}

@@ -1,0 +1,50 @@
+.wrapper {
+  padding: 0 5%;
+  background-color: rgb(90, 142, 254);
+  height: 70px;
+}
+
+.examTopbar {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.divider {
+  margin: 0 20px;
+  height: 30px;
+  background-color: rgb(76, 127, 238);
+  width: 2px;
+  display: inline-block;
+}
+
+//title就是middleContent
+.title {
+  font-size: 20px;
+  color: white;
+  font-family: PingFangSC-Medium;
+}
+
+.rightContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .clock {
+    width: 85px;
+  }
+
+  // .submitButton {
+  //   background: linear-gradient(to right, #7fa9ee, #2d7dfd);
+  //   width: 100px;
+  //   height: 35px;
+  //   border-radius: 8px;
+  //   display: flex;
+  //   justify-content: center;
+  //   align-items: center;
+  //   font-weight: 500;
+  //   color: white;
+  //   cursor: pointer;
+  // }
+}

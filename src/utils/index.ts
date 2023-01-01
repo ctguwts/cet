@@ -11,3 +11,42 @@ const versionParse = (version) => {
 export const formateCardTitle = (year, month, version, type?) => {
   return `${month}月${versionParse(version)}`;
 };
+
+//判断某个字符是否是英文标点符号
+export const isPunctuationtext = (char) => {
+  let set = ['.', ',', ':', ';', '?', '!', '"', "'", '(', ')', '[', ']', '{', '}'];
+  return set.includes(char);
+};
+
+//text是文本，pivot是鼠标点击的起点，返回值是当前鼠标选中的单词
+export const getSelectionWord = (text, pivot) => {
+  while (text[pivot] === ' ' || isPunctuationtext(text[pivot])) {
+    pivot++;
+  }
+  if (pivot >= text.length) {
+    return;
+  }
+  let start = pivot;
+  let end = pivot;
+  while (start > 0 && text[start - 1] != ' ' && !isPunctuationtext(text[start - 1])) {
+    start--;
+  }
+  while (end < text.length - 1 && text[end + 1] != ' ' && !isPunctuationtext(text[end + 1])) {
+    end++;
+  }
+  // console.log('范围是', start, end, text.substring(start, end + 1));
+  return text.substring(start, end + 1);
+};
+
+//把数字转化为ABCD
+const indexToOption = (index) => {
+  if (index === 0) {
+    return 'A';
+  } else if (index === 1) {
+    return 'B';
+  } else if (index === 2) {
+    return 'C';
+  } else if (index === 3) {
+    return 'D';
+  }
+};
