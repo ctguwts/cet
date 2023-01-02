@@ -14,7 +14,7 @@ export const formateCardTitle = (year, month, version, type?) => {
 
 //判断某个字符是否是英文标点符号
 export const isPunctuationtext = (char) => {
-  let set = ['.', ',', ':', ';', '?', '!', '"', "'", '(', ')', '[', ']', '{', '}'];
+  let set = ['.', ',', ':', ';', '?', '!', '"', "'", '(', ')', '[', ']', '{', '}', '“', '”'];
   return set.includes(char);
 };
 
@@ -50,3 +50,29 @@ const indexToOption = (index) => {
     return 'D';
   }
 };
+
+// 创建、删除tooltip容器
+// const useTooltipContainer = () => {
+//   const createContainer = () => {
+//     const ele = document.createElement('SPAN');
+//     ele.id = 'TooltipContainer';
+//     document.body.appendChild(ele);
+//   };
+
+//   const deleteContainner = () => {
+//     document.getElementById('TooltipContainer').innerHTML = '';
+//   };
+
+//   const getContainer = () => {
+//     let res = document.getElementById('TooltipContainer');
+//     console.log('res', res);
+//     return res;
+//   };
+
+//   return {
+//     createContainer: createContainer,
+//     deleteContainner: deleteContainner,
+//     getContainer: getContainer,
+//   };
+// };
+// export default useTooltipContainer;

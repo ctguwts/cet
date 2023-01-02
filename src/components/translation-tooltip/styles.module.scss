@@ -1,7 +1,7 @@
 .tootip {
   font-size: 16px;
   //这里的max-width和width只是初始值，具体值在行内样式中设置
-  max-width: 0;
+  // max-width: 0;
   width: fit-content;
 
   :global {

@@ -19,6 +19,7 @@ import QuestionCard from './question-card';
 import TranslationToolip from '@/components/translation-tooltip';
 import ExamTopBar from '@/components/exam-top-bar';
 import { useJudgementResultModal } from '@/components/judgement-result-modal';
+import ReadingWrapper from '@/components/reading-wrapper';
 
 import styles from './styles.module.scss';
 
@@ -88,100 +89,170 @@ const ReadingDetail: React.FC<Props> = (props) => {
   }, [activeTooltip]);
 
   return (
-    <div className={styles.wrapper}>
-      <ExamTopBar title='2022年卷二仔细阅读2' okHandler={okHandler} />
-      <div
-        className={styles.reading}
-        onClick={() => {
-          clickOuter();
-        }}>
-        <div className={styles.left}>
-          <div className={styles.topRow}>
-            <div>我是面包屑</div>
-          </div>
-          <Divider className={styles.divider} />
-          <div
-            className={styles.leftScrollConetnt}
-            onScroll={() => {
-              clickOuter();
-            }}>
-            {reading_question_english.map((_, index) => {
-              return (
-                <QuestionCard
-                  question={{
-                    questionIndex: reading_index[index],
-                    questionEnglish: reading_question_english[index],
-                    questionChinese: reading_question_chinese[index],
-                    optionsEnglish: reading_options_english[index],
-                    optionsChinese: reading_options_chinese[index],
-                    setActiveSentence: (sentence) => {
-                      setActiveTooltip(sentence);
-                    },
-                    isOpen: reading_question_chinese[index] === activeTooltip,
-                    clickCallback: callback,
-                    wrongOptions: jugementResult?.options[index],
-                  }}
-                />
-              );
-            })}
-          </div>
+    <ReadingWrapper clickOuter={clickOuter} okHandler={okHandler} topBarTitle='2022年卷二仔细阅读21'>
+      <div>
+        {reading_question_english.map((_, index) => {
+          return (
+            <QuestionCard
+              question={{
+                questionIndex: reading_index[index],
+                questionEnglish: reading_question_english[index],
+                questionChinese: reading_question_chinese[index],
+                optionsEnglish: reading_options_english[index],
+                optionsChinese: reading_options_chinese[index],
+                setActiveSentence: (sentence) => {
+                  setActiveTooltip(sentence);
+                },
+                isOpen: reading_question_chinese[index] === activeTooltip,
+                clickCallback: callback,
+                wrongOptions: jugementResult?.options[index],
+              }}
+            />
+          );
+        })}
+      </div>
+      <div>
+        <div className={styles.content} id='reading_detail_content'>
+          {reading_detail_example_new?.chinese.map((item, index) => {
+            return (
+              <TranslationToolip
+                title={reading_detail_example_new?.chinese[index]}
+                toolTipWidth={toolTipWidth}
+                isOpen={reading_detail_example_new?.chinese[index] === activeTooltip}
+                clickCallback={callback}>
+                {reading_detail_example_new?.english[index]}
+              </TranslationToolip>
+            );
+          })}
         </div>
-        <div
-          className={styles.right}
-          onScroll={() => {
-            clickOuter();
-          }}>
-          <div className={styles.title}>
-            <div className={styles.text}>仔细阅读</div>
-          </div>
-          <div className={styles.content} id='reading_detail_content'>
-            {reading_detail_example_new?.chinese.map((item, index) => {
-              return (
-                <TranslationToolip
-                  title={reading_detail_example_new?.chinese[index]}
-                  toolTipWidth={toolTipWidth}
-                  isOpen={reading_detail_example_new?.chinese[index] === activeTooltip}
-                  clickCallback={callback}>
-                  {reading_detail_example_new?.english[index]}
-                </TranslationToolip>
-              );
-            })}
-          </div>
-          {jugementResult ? (
-            <>
-              <div className={styles.translationText}>
-                <div className={styles.translationTitle}>参考译文</div>
-                {reading_detail_translation_text.map((item) => {
-                  return <div dangerouslySetInnerHTML={{ __html: item }}></div>;
+        {jugementResult ? (
+          <>
+            <div className={styles.translationText}>
+              <div className={styles.translationTitle}>参考译文</div>
+              {reading_detail_translation_text.map((item) => {
+                return <div dangerouslySetInnerHTML={{ __html: item }}></div>;
+              })}
+            </div>
+            <div className={styles.translationText}>
+              <div className={styles.translationTitle}>材料分析</div>
+              <div>{jugementResult?.passage_abstract}</div>
+            </div>
+            <div className={styles.translationText}>
+              <div className={styles.translationTitle}>重点单词</div>
+              <div>
+                {jugementResult?.important_words.map((item) => {
+                  return <div>{item}</div>;
                 })}
               </div>
-              <div className={styles.translationText}>
-                <div className={styles.translationTitle}>材料分析</div>
-                <div>{jugementResult?.passage_abstract}</div>
-              </div>
-              <div className={styles.translationText}>
-                <div className={styles.translationTitle}>重点单词</div>
-                <div>
-                  {jugementResult?.important_words.map((item) => {
-                    return <div>{item}</div>;
-                  })}
-                </div>
-              </div>
-            </>
-          ) : null}
-        </div>
+            </div>
+          </>
+        ) : null}
+        {selectedWord ? (
+          <WordTranslationBox
+            mousePoint={mousePoint}
+            word={selectedWord}
+            closeWordTranslationBox={closeWordTranslationBox}
+            curTranslation={curTranslation}
+            curEnglishText={curEnglishText}
+          />
+        ) : null}
+        {judgementResultModal}
       </div>
-      {selectedWord ? (
-        <WordTranslationBox
-          mousePoint={mousePoint}
-          word={selectedWord}
-          closeWordTranslationBox={closeWordTranslationBox}
-          curTranslation={curTranslation}
-          curEnglishText={curEnglishText}
-        />
-      ) : null}
-      {judgementResultModal}
-    </div>
+    </ReadingWrapper>
+    // <div className={styles.wrapper}>
+    //   <ExamTopBar title='2022年卷二仔细阅读2' okHandler={okHandler} />
+    //   <div
+    //     className={styles.reading}
+    //     onClick={() => {
+    //       clickOuter();
+    //     }}>
+    //     <div className={styles.left}>
+    //       <div className={styles.topRow}>
+    //         <div>我是面包屑</div>
+    //       </div>
+    //       <Divider className={styles.divider} />
+    //       <div
+    //         className={styles.leftScrollConetnt}
+    //         onScroll={() => {
+    //           clickOuter();
+    //         }}>
+    //         {reading_question_english.map((_, index) => {
+    //           return (
+    //             <QuestionCard
+    //               question={{
+    //                 questionIndex: reading_index[index],
+    //                 questionEnglish: reading_question_english[index],
+    //                 questionChinese: reading_question_chinese[index],
+    //                 optionsEnglish: reading_options_english[index],
+    //                 optionsChinese: reading_options_chinese[index],
+    //                 setActiveSentence: (sentence) => {
+    //                   setActiveTooltip(sentence);
+    //                 },
+    //                 isOpen: reading_question_chinese[index] === activeTooltip,
+    //                 clickCallback: callback,
+    //                 wrongOptions: jugementResult?.options[index],
+    //               }}
+    //             />
+    //           );
+    //         })}
+    //       </div>
+    //     </div>
+    //     <div
+    //       className={styles.right}
+    //       onScroll={() => {
+    //         clickOuter();
+    //       }}>
+    //       <div className={styles.title}>
+    //         <div className={styles.text}>仔细阅读</div>
+    //       </div>
+    //       <div className={styles.content} id='reading_detail_content'>
+    //         {reading_detail_example_new?.chinese.map((item, index) => {
+    //           return (
+    //             <TranslationToolip
+    //               title={reading_detail_example_new?.chinese[index]}
+    //               toolTipWidth={toolTipWidth}
+    //               isOpen={reading_detail_example_new?.chinese[index] === activeTooltip}
+    //               clickCallback={callback}>
+    //               {reading_detail_example_new?.english[index]}
+    //             </TranslationToolip>
+    //           );
+    //         })}
+    //       </div>
+    //       {jugementResult ? (
+    //         <>
+    //           <div className={styles.translationText}>
+    //             <div className={styles.translationTitle}>参考译文</div>
+    //             {reading_detail_translation_text.map((item) => {
+    //               return <div dangerouslySetInnerHTML={{ __html: item }}></div>;
+    //             })}
+    //           </div>
+    //           <div className={styles.translationText}>
+    //             <div className={styles.translationTitle}>材料分析</div>
+    //             <div>{jugementResult?.passage_abstract}</div>
+    //           </div>
+    //           <div className={styles.translationText}>
+    //             <div className={styles.translationTitle}>重点单词</div>
+    //             <div>
+    //               {jugementResult?.important_words.map((item) => {
+    //                 return <div>{item}</div>;
+    //               })}
+    //             </div>
+    //           </div>
+    //         </>
+    //       ) : null}
+    //     </div>
+    //   </div>
+    //   {selectedWord ? (
+    //     <WordTranslationBox
+    //       mousePoint={mousePoint}
+    //       word={selectedWord}
+    //       closeWordTranslationBox={closeWordTranslationBox}
+    //       curTranslation={curTranslation}
+    //       curEnglishText={curEnglishText}
+    //     />
+    //   ) : null}
+    //   {judgementResultModal}
+    // </div>
   );
 };
 

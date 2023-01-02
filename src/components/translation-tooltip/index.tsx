@@ -25,7 +25,7 @@ const TranslationToolip: React.FC<Props> = (props: Props) => {
         className={cls(styles.phase, { [styles.activePhase]: isOpen })}
         dangerouslySetInnerHTML={{ __html: showText }}
         onClick={(event) => {
-          clickCallback(event, title, showText);
+          clickCallback?.(event, title, showText);
         }}></span>
     </Tooltip>
   );
