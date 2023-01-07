@@ -31,14 +31,21 @@ const ExamTopBar: React.FC<Props> = (props: Props) => {
             <TimeDisplay />
           </div>
           <div className={styles.divider}></div>
-          <Button
+          {/* <Button
             size='large'
             style={{ width: '100px' }}
             onClick={() => {
               clickButton();
             }}>
             交卷
-          </Button>
+          </Button> */}
+          <div
+            className={styles.submitButton}
+            onClick={() => {
+              clickButton();
+            }}>
+            交卷
+          </div>
         </div>
       </div>
       <SubmitModal visible={showSubmitModal} setIsShowSubmitModal={setIsShowSubmitModal} okHandler={okHandler} />

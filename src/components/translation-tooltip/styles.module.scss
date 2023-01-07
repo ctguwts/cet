@@ -4,6 +4,17 @@
   // max-width: 0;
   width: fit-content;
 
+  .wordTranslationBox {
+    margin-bottom: 8px;
+    border-radius: 6px;
+    border: 1px solid rgb(217, 217, 217);
+    padding: 3px 10px;
+
+    &:last-child {
+      margin-bottom: 0px;
+    }
+  }
+
   :global {
     .ant-tooltip-content {
       // width: 100%;
@@ -27,6 +38,16 @@
   em {
     font-weight: 700;
     font-style: normal;
+  }
+  u {
+    // background-color: red;
+    display: inline-block;
+    text-align: center;
+    min-width: 60px;
+    width: fit-content;
+    text-decoration: none;
+    border-bottom: 1px solid black;
+    color: rgb(46, 108, 198);
   }
 }
 

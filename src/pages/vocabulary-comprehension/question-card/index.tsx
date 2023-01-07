@@ -1,9 +1,8 @@
-import Item from 'antd/es/list/Item';
-import React, { memo, Suspense, useMemo, useState } from 'react';
-import { Radio, Tooltip, Tag, Button } from 'antd';
+import React, { memo, Suspense, useEffect, useMemo, useState } from 'react';
+import { Radio, Tooltip, Tag, Button, Switch } from 'antd';
 import cls from 'classnames';
 
-import TranslationToolip from '@/components/translation-tooltip';
+import { WtsRadio } from '@/components/wts-radios';
 
 import styles from './styles.module.scss';
 
@@ -13,57 +12,58 @@ interface Props {
   questionWordsChinese?: any;
   setActiveWord?: any;
   activeWord?: any;
+  clickCallback?: any;
 }
-interface TranslationProps {
-  questionWordsChinese: any;
-}
-const indexToOption = (index) => {
-  const map = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'];
-  return map[index];
-};
 
-const WordTranslation: React.FC<TranslationProps> = (props: TranslationProps) => {
-  const { questionWordsChinese } = props;
-  return (
-    <>
-      {questionWordsChinese.map((item) => {
-        return <div>{item}</div>;
-      })}
-    </>
-  );
-};
 const QuestionCard: React.FC<Props> = (props) => {
-  const { questionWords, questionIndex, questionWordsChinese, setActiveWord, activeWord } = props;
+  const { questionWords, questionIndex, questionWordsChinese, setActiveWord, activeWord, clickCallback } = props;
 
   const [select, setSelect] = useState();
+  const [showTranslation, setShowTranslation] = useState(false); //是否展示所有选项的翻译
+
+  useEffect(() => {
+    console.log('你改变了选项', select);
+    if (typeof select != 'number') return;
+    let questionDom = document.getElementById(String(questionIndex));
+    questionDom.innerText = `${questionIndex}.${questionWords[select as number]}`;
+    console.log(document.getElementById(String(questionIndex)));
+  }, [select]);
 
   return (
     <div className={styles.questionCard}>
-      <div className={styles.title}>第{questionIndex}题</div>
+      <div className={styles.title}>
+        <div className={styles.text}>第{questionIndex}题</div>
+        <div
+          onClick={() => {
+            setShowTranslation(!showTranslation);
+          }}>
+          <Switch checkedChildren='关' unCheckedChildren='译' />
+        </div>
+      </div>
       <div className={styles.opetionArea}>
         {questionWords.map((item, index) => {
           return (
-            <div className={styles.item} key={questionIndex + item}>
-              <div
-                className={cls({ [styles.circle]: index !== select }, { [styles.activeCircle]: index === select })}
-                onClick={() => {
-                  setSelect(index);
-                }}>
-                {indexToOption(index)}
-              </div>
-              <div
-                className={styles.text}
-                onClick={(event) => {
-                  event.stopPropagation();
-                  setActiveWord(questionIndex + item);
-                }}>
-                <TranslationToolip isOpen={activeWord === questionIndex + item} title={<WordTranslation questionWordsChinese={questionWordsChinese[index]} />}>
-                  {item}
-                </TranslationToolip>
-              </div>
+            <div className={styles.wordWrapper}>
+              <WtsRadio
+                questionIndex={questionIndex}
+                optionIndex={index}
+                sentense={item}
+                selected={select === index}
+                setSelect={setSelect}
+                activeTooltip={activeWord}
+                chinese={questionWordsChinese[index]}
+                clickCallback={clickCallback}
+                showSecondLineTranslation={showTranslation}
+              />
             </div>
           );
         })}
+        {/* i是为了在flex布局下，最后一行填满元素 */}
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
+        <i></i>
       </div>
     </div>
   );

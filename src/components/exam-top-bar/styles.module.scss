@@ -1,6 +1,7 @@
 .wrapper {
   padding: 0 5%;
   background-color: rgb(90, 142, 254);
+  // background-color: rgb(36, 36, 36);
   height: 70px;
 }
 
@@ -35,16 +36,22 @@
     width: 85px;
   }
 
-  // .submitButton {
-  //   background: linear-gradient(to right, #7fa9ee, #2d7dfd);
-  //   width: 100px;
-  //   height: 35px;
-  //   border-radius: 8px;
-  //   display: flex;
-  //   justify-content: center;
-  //   align-items: center;
-  //   font-weight: 500;
-  //   color: white;
-  //   cursor: pointer;
-  // }
+  .submitButton {
+    // background: linear-gradient(to right, #7fa9ee, #2d7dfd);
+    border: 1px solid white;
+    width: 100px;
+    height: 35px;
+    border-radius: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    color: white;
+    cursor: pointer;
+
+    // &:hover {
+    //   border: 1px solid white;
+    //   color: white;
+    // }
+  }
 }

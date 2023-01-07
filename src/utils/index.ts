@@ -14,7 +14,7 @@ export const formateCardTitle = (year, month, version, type?) => {
 
 //判断某个字符是否是英文标点符号
 export const isPunctuationtext = (char) => {
-  let set = ['.', ',', ':', ';', '?', '!', '"', "'", '(', ')', '[', ']', '{', '}', '“', '”'];
+  let set = ['.', ',', ':', ';', '?', '!', '"', "'", '(', ')', '[', ']', '{', '}', '“', '”', '’'];
   return set.includes(char);
 };
 
@@ -34,21 +34,14 @@ export const getSelectionWord = (text, pivot) => {
   while (end < text.length - 1 && text[end + 1] != ' ' && !isPunctuationtext(text[end + 1])) {
     end++;
   }
-  // console.log('范围是', start, end, text.substring(start, end + 1));
-  return text.substring(start, end + 1);
+  console.log('范围是', start, end, text.substring(start, end + 1).toLowerCase());
+  return text.substring(start, end + 1).toLowerCase();
 };
 
 //把数字转化为ABCD
-const indexToOption = (index) => {
-  if (index === 0) {
-    return 'A';
-  } else if (index === 1) {
-    return 'B';
-  } else if (index === 2) {
-    return 'C';
-  } else if (index === 3) {
-    return 'D';
-  }
+export const indexToOption = (index) => {
+  const map = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R'];
+  return map[index];
 };
 
 // 创建、删除tooltip容器

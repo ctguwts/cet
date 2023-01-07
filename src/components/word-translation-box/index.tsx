@@ -57,7 +57,12 @@ const WordTranslationBox: React.FC<Props> = (props) => {
   }, []);
 
   return (
-    <div className={styles.wordTranslationBox} style={{ left: computedMousePoint.x, top: computedMousePoint.y }}>
+    <div
+      className={styles.wordTranslationBox}
+      style={{ left: computedMousePoint.x, top: computedMousePoint.y }}
+      onClick={(event) => {
+        event.stopPropagation();
+      }}>
       <div className={styles.header}>
         <Search placeholder='请输入你要搜索的单词' style={{ width: 220 }} />
         <CloseOutlined
@@ -79,7 +84,10 @@ const WordTranslationBox: React.FC<Props> = (props) => {
           <div className={styles.content}>{`${curEnglishText}\n \n${curTranslation}`}</div>
 
           <div className={styles.title}>其他例句</div>
-          <div className={styles.content}>{`In many plants, an indigestible seed coat permits the seed to pass unharmed through the bird’s alimentary system.
+          <div
+            className={
+              styles.content
+            }>{`In many plants, an indigestible seed coat permits the seed to pass unharmed through the bird’s alimentary system.
 
 在许多植物中，无法消化的种子皮使种子不受伤害地通过鸟类的消化系统。`}</div>
         </div>
