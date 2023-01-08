@@ -12,47 +12,55 @@
   display: flex;
   align-items: center;
 
-  .circle {
+  .circleBase {
     width: 30px;
     height: 30px;
-    border: 1px solid rgb(202, 202, 205);
     -moz-border-radius: 15px;
     -webkit-border-radius: 15px;
     border-radius: 15px;
     font-size: 14px;
     margin-right: 5px;
     cursor: pointer;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .circle {
+    border: 1px solid rgb(202, 202, 205);
+    &:hover {
+      color: #4c91ff !important;
+      border: 1px solid #4c91ff;
+    }
+  }
+  .circleGray {
+    border: 1px solid rgb(210, 210, 210);
+    background-color: rgb(235, 235, 235);
 
     &:hover {
       color: #4c91ff !important;
       border: 1px solid #4c91ff;
     }
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
   }
   .activeCircle {
-    width: 30px;
-    height: 30px;
-    -moz-border-radius: 15px;
-    -webkit-border-radius: 15px;
-    border-radius: 15px;
-    font-size: 14px;
-    margin-right: 5px;
-    cursor: pointer;
     background-color: rgb(67, 111, 254);
+    border: 1px solid rgb(67, 111, 254);
     color: white;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
     &:hover {
       background-color: rgb(82, 148, 254);
       color: white !important;
       // border: 1px solid #4c91ff;
     }
+  }
+  .questionNumber {
+    border: 1px solid rgb(210, 210, 210);
+    background-color: rgb(235, 235, 235);
+    border-radius: 9px;
+    font-size: 12px;
+    position: absolute;
+    left: 18px;
+    bottom: 18px;
   }
 
   .text {
@@ -65,17 +73,30 @@
 }
 
 .secondLineTranslation {
-  width: 150px;
   flex: 1;
   position: relative;
 
+  //词汇理解（选词填空） translationBox是150px，和单词长度一致
   .box {
-    //     box-sizing: border-box;
+    box-sizing: border-box;
     margin-top: 10px;
-    border: 1px solid #dcdee1;
+    border: 1px solid rgb(217, 217, 217);
     border-radius: 6px;
     padding: 5px 10px;
     font-size: 13px;
     font-weight: 500;
+    width: 150px;
+  }
+
+  //仔细阅读、长篇阅读、听力 translationBox随内容变化
+  .boxSentence {
+    box-sizing: border-box;
+    margin-top: 10px;
+    border: 1px solid rgb(217, 217, 217);
+    border-radius: 6px;
+    padding: 5px 10px;
+    font-size: 13px;
+    font-weight: 500;
+    width: fit-content;
   }
 }

@@ -5,6 +5,7 @@ import cls from 'classnames';
 import { WtsRadio } from '@/components/wts-radios';
 
 import styles from './styles.module.scss';
+import { findGrayIndex, useGetAllSelected } from '@/utils/useGetAllSelected';
 
 interface Props {
   questionWords?: any;
@@ -13,13 +14,26 @@ interface Props {
   setActiveWord?: any;
   activeWord?: any;
   clickCallback?: any;
+  allSelected?: any; //用户作答
+  setAllSelected?: any;
 }
 
 const QuestionCard: React.FC<Props> = (props) => {
-  const { questionWords, questionIndex, questionWordsChinese, setActiveWord, activeWord, clickCallback } = props;
+  const {
+    questionWords,
+    questionIndex,
+    questionWordsChinese,
+    setActiveWord,
+    activeWord,
+    clickCallback,
+    allSelected,
+    setAllSelected,
+  } = props;
 
   const [select, setSelect] = useState();
   const [showTranslation, setShowTranslation] = useState(false); //是否展示所有选项的翻译
+
+  useGetAllSelected({ allSelected, setAllSelected, questionIndex, selected: select });
 
   useEffect(() => {
     console.log('你改变了选项', select);
@@ -54,6 +68,7 @@ const QuestionCard: React.FC<Props> = (props) => {
                 chinese={questionWordsChinese[index]}
                 clickCallback={clickCallback}
                 showSecondLineTranslation={showTranslation}
+                grayIndex={findGrayIndex(allSelected, index)}
               />
             </div>
           );

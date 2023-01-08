@@ -1,12 +1,14 @@
 import Item from 'antd/es/list/Item';
 import React, { memo, Suspense, useEffect, useMemo, useState } from 'react';
-import { Radio, Tooltip, Tag } from 'antd';
+import { Radio, Tooltip, Tag, Switch } from 'antd';
 import cls from 'classnames';
 
 import TranslationToolip from '@/components/translation-tooltip';
 import { WtsRadio } from '@/components/wts-radios';
 
 import styles from './styles.module.scss';
+import { useGetAllSelected } from '@/utils/useGetAllSelected';
+import classNames from 'classnames';
 
 interface Props {
   // question: any;
@@ -48,28 +50,9 @@ const QuestionCard: React.FC<Props> = (props) => {
     allSelected,
   } = props;
   const [selected, setSelected] = useState(); //选了哪个选项
+  const [showTranslation, setShowTranslation] = useState(false); //是否展示所有选项的翻译
 
-  useEffect(() => {
-    let beforeIndex = null;
-    //该题之前是否答过
-    for (let index = 0; index < allSelected.length; index++) {
-      if (allSelected[index].questionIndex === questionIndex) {
-        beforeIndex = index;
-      }
-    }
-    //如果之前回答过，先删除之前的答案
-    let tmpList = allSelected;
-    if (beforeIndex !== null) {
-      tmpList.splice(beforeIndex, 1);
-    }
-    //把当前答案存入数组
-    tmpList.push({
-      questionIndex: questionIndex,
-      option: selected,
-    });
-    console.log('更新列表', tmpList);
-    setAllSelected(tmpList);
-  }, [selected]);
+  useGetAllSelected({ allSelected, setAllSelected, questionIndex, selected });
 
   const toolTipWidth = useMemo(() => {
     return document.getElementById('questionEnglishId')?.offsetWidth - 50;
@@ -85,6 +68,17 @@ const QuestionCard: React.FC<Props> = (props) => {
           clickCallback={clickCallback}>
           {questionIndex}.{questionEnglish}
         </TranslationToolip>
+        {!wrongOptions ? (
+          <div className={styles.switch}>
+            <Switch
+              checkedChildren='关'
+              unCheckedChildren='译'
+              onClick={() => {
+                setShowTranslation(!showTranslation);
+              }}
+            />
+          </div>
+        ) : null}
       </div>
       {!wrongOptions ? (
         // <div className={styles.options}>
@@ -115,6 +109,7 @@ const QuestionCard: React.FC<Props> = (props) => {
                 activeTooltip={activeSentence}
                 chinese={optionsChinese[index]}
                 clickCallback={clickCallback}
+                showSecondLineTranslation={showTranslation}
               />
             </div>
           );

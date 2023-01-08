@@ -10,14 +10,17 @@
   color: rgb(73, 73, 73);
   font-size: 18px;
   margin: 15px 0px;
-}
-
-.item {
   display: flex;
-  align-items: center;
+  justify-content: space-between;
+
+  .switch {
+    margin-left: 5px;
+  }
 }
 
 .selected {
+  padding-top: 15px;
+  padding-bottom: 15px;
   background-color: rgb(241, 246, 255);
   border: 1px solid rgb(90, 142, 254);
 
@@ -32,17 +35,21 @@
   flex-direction: column;
   margin-bottom: 20px;
   .wrong {
+    padding-top: 15px;
+    padding-bottom: 15px;
     border: 1px solid rgb(251, 204, 199);
     background-color: rgb(254, 242, 240) !important;
   }
   .correct {
+    padding-top: 15px;
+    padding-bottom: 15px;
     border: 1px solid rgb(186, 236, 145);
     background-color: rgb(246, 255, 237) !important;
   }
 }
 
 .item {
-  height: 60px;
+  margin-bottom: 20px;
   display: flex;
   align-items: center;
   margin-left: -30px;

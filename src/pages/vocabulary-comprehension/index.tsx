@@ -22,6 +22,7 @@ import ReadingWrapper from '@/components/reading-wrapper';
 
 import styles from './styles.module.scss';
 import TranslationToolip from '@/components/translation-tooltip';
+import { isSelectedInOtherQuestion } from '@/utils/useGetAllSelected';
 
 const vocabulary_passage = {
   chinese: [
@@ -110,6 +111,7 @@ const VocabularyComprehension: React.FC<Props> = (props) => {
   //当前被点击的英文句子文本，以及翻译
   const [curTranslation, setCurTranslation] = useState();
   const [curEnglishText, setCurEnglishText] = useState();
+  const [allSelected, setAllSelected] = useState([]); //用户作答
 
   //判卷结果
   const [jugementResult, setJudgementResult] = useState<any>();
@@ -118,9 +120,6 @@ const VocabularyComprehension: React.FC<Props> = (props) => {
   const [activeTooltip, setActiveTooltip] = useState(
     '在许多植物中，无法消化的种子皮使种子不受伤害地通过鸟类的消化系统。',
   );
-
-  //active 备选单词
-  const [activeWord, setActiveWord] = useState();
 
   const {
     judgementResultModal,
@@ -149,7 +148,7 @@ const VocabularyComprehension: React.FC<Props> = (props) => {
     setMousePoint({ x: event.clientX, y: event.clientY });
   };
 
-  //滚动左侧时触发
+  //滚动时触发
   const clickOuter = () => {
     setSelectedWord(null); //清空选中单词，关闭单词卡片
     setActiveTooltip(null);
@@ -164,6 +163,7 @@ const VocabularyComprehension: React.FC<Props> = (props) => {
   const okHandler = () => {
     //此处发起网络请求，把答案提交给后端
     console.log('提交，提交网络请求');
+    console.log('提交的作答是', allSelected);
     setJudgementResult(jugement_result);
     openJudgementResultModal();
   };
@@ -183,7 +183,11 @@ const VocabularyComprehension: React.FC<Props> = (props) => {
               questionWordsChinese={question_words_chinese}
               setActiveWord={setActiveTooltip}
               activeWord={activeTooltip}
-              clickCallback={callback}></QuestionCard>
+              clickCallback={callback}
+              allSelected={allSelected}
+              setAllSelected={(tmpList) => {
+                setAllSelected(tmpList);
+              }}></QuestionCard>
           );
         })}
       </div>

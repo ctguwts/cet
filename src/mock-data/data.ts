@@ -487,7 +487,8 @@ export const week_wrong_ranking_reading = [
 
 export const reading_detail_example = [
   {
-    english: 'Organisms of different species frequently evolve adaptations that make them utterly and specifically dependent on each other for resources.',
+    english:
+      'Organisms of different species frequently evolve adaptations that make them utterly and specifically dependent on each other for resources.',
     chinese: '不同物种的生物经常进化出适应性，使它们完全相互依赖，特别是为资源相互依赖。',
   },
   {
@@ -496,13 +497,15 @@ export const reading_detail_example = [
     chinese: '例如，许多树木的根系中必须有菌根真菌，这种真菌对于树木是必不可少的，因为它们促进了土壤中矿物质的吸收。',
   },
   {
-    english: 'In turn, the fungi rely on the trees to photosynthesize; they use some of the tree’s chemical food as their only energy source.',
+    english:
+      'In turn, the fungi rely on the trees to photosynthesize; they use some of the tree’s chemical food as their only energy source.',
     chinese: '反过来，真菌则依靠树木进行光合作用。他们使用树木的某些化学食物作为唯一能源。',
   },
   {
     english:
       ' Such intimate relationships are examples of coevolution through which two species become so interdependent that they can thrive only in each other’s presence.',
-    chinese: '这种亲密的关系是共同进化的一个例子，通过这种进化，两个物种变得如此相互依存，以至于它们只能在彼此的存在下壮成长。',
+    chinese:
+      '这种亲密的关系是共同进化的一个例子，通过这种进化，两个物种变得如此相互依存，以至于它们只能在彼此的存在下壮成长。',
   },
   {
     english: '\n',
@@ -510,7 +513,8 @@ export const reading_detail_example = [
   },
 
   {
-    english: 'At first glance, the relationship between pinyon pine trees and the pinyon jay does not appear to be one of coevolution.',
+    english:
+      'At first glance, the relationship between pinyon pine trees and the pinyon jay does not appear to be one of coevolution.',
     chinese: '乍一看，矮松与矮松鸦之间的关系似乎并不是共同进化的一种。',
   },
   {
@@ -530,11 +534,13 @@ export const reading_detail_example = [
     chinese: '一些植物含有有毒种子，这是一种减少损失的策略。',
   },
   {
-    english: 'Pinyons, however, have an array of characteristics that combine to encourage jays to visit the pines and help themselves to the seeds.',
+    english:
+      'Pinyons, however, have an array of characteristics that combine to encourage jays to visit the pines and help themselves to the seeds.',
     chinese: '然而，矮松具有一系列特征，这些特征结合到一起促使矮松鸦到访并且获取矮松种子。',
   },
   {
-    english: 'Cones are positioned upward and outward on the tree, so the seeds inside are in plain sight of the jays, essentially inviting them to partake.',
+    english:
+      'Cones are positioned upward and outward on the tree, so the seeds inside are in plain sight of the jays, essentially inviting them to partake.',
     chinese: '松果位于树的上方和外面，因此里面的种子在松鸦的视线中一览无余，从本质上邀请它们参与进来。',
   },
   {
@@ -542,15 +548,18 @@ export const reading_detail_example = [
     chinese: '矮松种子异常大，每个种子富含能量。',
   },
   {
-    english: 'The seed coat is thin, meaning that birds such as pinyon jays can not only ingest the seeds but also digest them.',
+    english:
+      'The seed coat is thin, meaning that birds such as pinyon jays can not only ingest the seeds but also digest them.',
     chinese: '种子皮很薄，这意味着像松鸦之类的鸟不仅可以摄取种子，还可以消化种子。',
   },
   {
-    english: 'In many plants, an indigestible seed coat permits the seed to pass unharmed through the bird’s alimentary system.',
+    english:
+      'In many plants, an indigestible seed coat permits the seed to pass unharmed through the bird’s alimentary system.',
     chinese: '在许多植物中，无法消化的种子皮使种子不受伤害地通过鸟类的消化系统。',
   },
   {
-    english: 'Pinyon seed coats differ in color between edible and nonviable seeds, signaling the jays as to which they should select.',
+    english:
+      'Pinyon seed coats differ in color between edible and nonviable seeds, signaling the jays as to which they should select.',
     chinese: '食用和非食用种子的矮松种子皮颜色不同，暗示松鸦该选什么品种的种子。',
   },
   {
@@ -563,22 +572,26 @@ export const reading_detail_example = [
     chinese: '吸引种子捕食者似乎并不是矮松的成功生存策略。',
   },
   {
-    english: 'However, pinyon jays are behaviorally adapted to bury any seeds in excess of their immediate survival needs.',
+    english:
+      'However, pinyon jays are behaviorally adapted to bury any seeds in excess of their immediate survival needs.',
     chinese: '但是，矮松鸦在行为上倾向于掩埋超出其眼下生存需求的任何种子。',
   },
   {
     english:
       'This is a useful behavior for the jays, providing they can retrieve some of the buried seeds during winter, and good for the trees, as the unretrieved seeds are ready to germinate. ',
-    chinese: '对于松鸦来说，这是一种有用的行为：因为它们可以在冬天取回一些埋藏的种子；并且对树木有利，因为未取回的种子已准备好发芽。',
+    chinese:
+      '对于松鸦来说，这是一种有用的行为：因为它们可以在冬天取回一些埋藏的种子；并且对树木有利，因为未取回的种子已准备好发芽。',
   },
   {
-    english: 'Still, for the jays to bury any seeds, there must be an abundance of seeds far beyond the jays’ immediate needs.',
+    english:
+      'Still, for the jays to bury any seeds, there must be an abundance of seeds far beyond the jays’ immediate needs.',
     chinese: '尽管如此，为了让这些松鸦能够埋藏任何种子，必须有大量种子，远远超出了它们的迫切需求。',
   },
   {
     english:
       'One tree could never produce so many seeds, but if all the pinyons in a region produced heavy seed crops at once, they would indeed “flood the market” with vastly more pinyon seeds than the local population of jays could consume.',
-    chinese: '一棵树永远不可能产生那么多的种子，但是如果一个地区的所有松树都能同时生产出大量的种子，那么它们的“松树市场”确实比当地松鸦的消费量要多得多。',
+    chinese:
+      '一棵树永远不可能产生那么多的种子，但是如果一个地区的所有松树都能同时生产出大量的种子，那么它们的“松树市场”确实比当地松鸦的消费量要多得多。',
   },
   {
     english: 'In fact, that is exactly what the pinyon pines do.',
@@ -595,7 +608,8 @@ export const reading_detail_example = [
     chinese: '产生如此多的种子需要大量的能量，如此之多的能量使矮松不可能每年产生如此丰收的种子。',
   },
   {
-    english: 'More important, however, it would be to the severe disadvantage of the trees to produce large seed crops annually, even if they could.',
+    english:
+      'More important, however, it would be to the severe disadvantage of the trees to produce large seed crops annually, even if they could.',
     chinese: '然而，更重要的是，即使可以，每年产生大量的种子对矮松严重不利。',
   },
   {
@@ -621,11 +635,13 @@ export const reading_detail_example = [
   },
 
   {
-    english: 'First, energy can be stored for some years and then devoted to cone and seed production, ensuring adequate energy to produce a large seed crop.',
+    english:
+      'First, energy can be stored for some years and then devoted to cone and seed production, ensuring adequate energy to produce a large seed crop.',
     chinese: '首先，能量可以存储几年，然后专门用于松果和种子生产，从而确保有足够的能量来生产大量种子。',
   },
   {
-    english: 'Second, seed-predator populations will decline in years of low seed production, either through starvation, reduced reproduction, or emigration.',
+    english:
+      'Second, seed-predator populations will decline in years of low seed production, either through starvation, reduced reproduction, or emigration.',
     chinese: '第二，在种子产量低的年份，由于饥饿，繁殖减少或迁移，种子掠食者的数量将下降。',
   },
   {
@@ -637,7 +653,8 @@ export const reading_detail_example = [
     chinese: '\n',
   },
   {
-    english: 'Pinyon jays have so completely adapted to the cycle of the pinyons that their reproduction is tied to it.',
+    english:
+      'Pinyon jays have so completely adapted to the cycle of the pinyons that their reproduction is tied to it.',
     chinese: '等到矮松鸦已经完全适应了矮松的周期，它们的繁殖与之相关。',
   },
   {
@@ -658,7 +675,8 @@ export const reading_detail_example = [
     chinese: '当种子丰富时，松鸦可以在早春繁殖，直到夏季继续繁殖，并且最早在冬至时重新进入繁殖条件。',
   },
   {
-    english: ' So the jay population temporarily enlarges in response to one of the intermittent large crops of pinyon seeds.',
+    english:
+      ' So the jay population temporarily enlarges in response to one of the intermittent large crops of pinyon seeds.',
     chinese: '因此，根据松果种子间歇性数量大爆发，矮松鸦数量也会暂时扩大。',
   },
   {
@@ -666,7 +684,8 @@ export const reading_detail_example = [
     chinese: '但是，松鸦数量的增加少于种子数量的增加。',
   },
   {
-    english: 'Thus many of the seeds of a bumper crop are buried and subsequently germinate, many more than would germinate without planting by the jays.',
+    english:
+      'Thus many of the seeds of a bumper crop are buried and subsequently germinate, many more than would germinate without planting by the jays.',
     chinese: '因此，许多种子被掩埋并随后发芽，这比没有松鸦参与掩埋的种子发芽的数量要多得多。',
   },
   {
@@ -675,7 +694,7 @@ export const reading_detail_example = [
   },
 ];
 
-//仔细阅读英文
+//仔细阅读英文+中文
 export const reading_detail_example_new = {
   chinese: [
     '在即将到来的教育预算削减时代，远程教育可能会成为常态',
@@ -731,7 +750,7 @@ export const reading_detail_example_new = {
   ],
 };
 
-//仔细阅读中文
+//仔细阅读提交后的中文翻译
 export const reading_detail_translation_text = [
   '<u>（51）在即将到来的教育预算削减时代，远程教育可能会成为常态。</u>',
   '<br />',
@@ -766,7 +785,12 @@ export const reading_index = [51, 52, 53, 54, 55];
 
 //仔细阅读题目选项 英文
 export const reading_options_english = [
-  ['Advances in education technology.', 'Shrinking financial resources.', 'Shortage of school facilities.', 'Lack of qualified teachers.'],
+  [
+    'Advances in education technology.',
+    'Shrinking financial resources.',
+    'Shortage of school facilities.',
+    'Lack of qualified teachers.',
+  ],
   [
     'Developing the habit of getting up early.',
     'Eating nutritionally well-balanced meals.',
@@ -785,12 +809,22 @@ export const reading_options_english = [
     'Enable students to adapt to the changes in life.',
     'Prepare students to be competitive in the future.',
   ],
-  ['It lacks humanity.', 'It is still immature.', 'It cannot track students’ growth.', 'It cannot cater to personal needs.'],
+  [
+    'It lacks humanity.',
+    'It is still immature.',
+    'It cannot track students’ growth.',
+    'It cannot cater to personal needs.',
+  ],
 ];
 
 //仔细阅读题目选项 中文
 export const reading_options_chinese = [
-  ['教育技术的进步。', '财政资源的缩水。', '学校设施的不足。', '合格教师的缺乏。'],
+  [
+    '教育技术的进步。教育技术的进步。教育技术的进步。教育技术的进步。教育技术的进步。',
+    '财政资源的缩水。',
+    '学校设施的不足。',
+    '合格教师的缺乏。',
+  ],
   ['养成早起的习惯。', '吃营养均衡的食物。', '成长为活生生的人。', '培养与同龄人和老师的关系。'],
   ['它可能有潜在的缺点。', '它可能导致许多教师失业。', '它可能会增加学生的经济负担。', '它可能会彻底改变课堂教学。'],
   ['提高学生的领导能力。', '将学生提升到管理职位。', '使学生适应生活的变化。', '让学生做好准备，在未来具有竞争力。'],
