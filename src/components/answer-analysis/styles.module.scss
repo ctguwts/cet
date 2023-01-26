@@ -1,0 +1,18 @@
+.analysis {
+  color: gray;
+  cursor: default;
+  .box {
+    margin-bottom: 20px;
+    .tag {
+      margin-bottom: 10px;
+    }
+    .text {
+      u {
+        // text-decoration-line: none;
+        font-weight: 500;
+        font-style: italic;
+        // color: black;
+      }
+    }
+  }
+}

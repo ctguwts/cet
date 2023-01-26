@@ -5,7 +5,7 @@
   padding: 20px 50px;
 }
 
-//交卷前的选项
+//题干
 .questionEnglish {
   color: rgb(73, 73, 73);
   font-size: 18px;
@@ -29,25 +29,6 @@
   }
 }
 
-//交卷后的选项
-.wrongOptions {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-  .wrong {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 1px solid rgb(251, 204, 199);
-    background-color: rgb(254, 242, 240) !important;
-  }
-  .correct {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 1px solid rgb(186, 236, 145);
-    background-color: rgb(246, 255, 237) !important;
-  }
-}
-
 .item {
   margin-bottom: 20px;
   display: flex;
@@ -65,25 +46,6 @@
   &:hover {
     span {
       color: #4c91ff !important;
-    }
-  }
-}
-
-.analysis {
-  color: gray;
-  cursor: default;
-  .box {
-    margin-bottom: 20px;
-    .tag {
-      margin-bottom: 10px;
-    }
-    .text {
-      u {
-        // text-decoration-line: none;
-        font-weight: 500;
-        font-style: italic;
-        // color: black;
-      }
     }
   }
 }

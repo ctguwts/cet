@@ -5,16 +5,7 @@ import { Tooltip, Divider, Modal } from 'antd';
 import WordTranslationBox from '@/components/word-translation-box';
 import { getSelectionWord } from '@/utils';
 import { Point } from '@/const/types';
-import {
-  reading_detail_example_new,
-  reading_detail_translation_text,
-  reading_question_english,
-  reading_question_chinese,
-  reading_index,
-  reading_options_english,
-  reading_options_chinese,
-  jugement_result,
-} from '@/mock-data/data';
+import { vocabulary_judgement_result } from '@/mock-data/data';
 import QuestionCard from './question-card';
 import ExamTopBar from '@/components/exam-top-bar';
 import { useJudgementResultModal } from '@/components/judgement-result-modal';
@@ -22,7 +13,6 @@ import ReadingWrapper from '@/components/reading-wrapper';
 
 import styles from './styles.module.scss';
 import TranslationToolip from '@/components/translation-tooltip';
-import { isSelectedInOtherQuestion } from '@/utils/useGetAllSelected';
 
 const vocabulary_passage = {
   chinese: [
@@ -103,6 +93,17 @@ const question_words_chinese = [
 ];
 const question_index = [26, 27, 28, 29, 30, 31, 32, 33, 34, 35];
 
+const translation = [
+  '如果你在杂货店购物时看过配料表，你很可能看到过“天然香辛料”这个词。但你有没有花时间想过这些天然香辛料到底是什么？',
+  '<br />',
+  '我们大多数人可能会认为“天然香辛料”自然对我们有好处。《食欲》杂志最近的一项研究发现，当“天然”一词出现在包装上时，人们会认为里面的食物确实更健康。事实上，至少从化学角度来说，天然香辛料与对应的增强风味的人造香辛料并没有太大区别。这两种香辛料都可以在实验室里由训练有素的调味师制作，但人工香辛料使用化学物质使产品具有特定的气味或味道。',
+  '<br />',
+  '天然香辛料来自植物或动物，如水果、蔬菜、肉、鱼或奶，然后以某种方式加工或精炼。简而言之，天然香辛料是从植物和动物中提取的，为加工食品创造特定的味道。但这未必会让你更容易分辨出食物中真正的成分。由于美国食品和药品管理局（FDA）没有定义这个词，公司可以用它来指代几乎任何从植物或动物中提取的东西。天然香辛料也可以包括各种化学添加剂，如防腐剂。FDA并没有要求公司披露某个特定的产品中包含哪些额外的化学物质。',
+  '<br />',
+  '所以，如果你想确切知道你买的东西是什么，你可能会想去农贸市场。',
+  '<br />',
+];
+
 interface Props {}
 
 const VocabularyComprehension: React.FC<Props> = (props) => {
@@ -117,9 +118,7 @@ const VocabularyComprehension: React.FC<Props> = (props) => {
   const [jugementResult, setJudgementResult] = useState<any>();
 
   //当前需要ToolTip的句子
-  const [activeTooltip, setActiveTooltip] = useState(
-    '在许多植物中，无法消化的种子皮使种子不受伤害地通过鸟类的消化系统。',
-  );
+  const [activeTooltip, setActiveTooltip] = useState('在许多植物中，无法消化的种子皮使种子不受伤害地通过鸟类的消化系统。');
 
   const {
     judgementResultModal,
@@ -164,7 +163,7 @@ const VocabularyComprehension: React.FC<Props> = (props) => {
     //此处发起网络请求，把答案提交给后端
     console.log('提交，提交网络请求');
     console.log('提交的作答是', allSelected);
-    setJudgementResult(jugement_result);
+    setJudgementResult(vocabulary_judgement_result);
     openJudgementResultModal();
   };
 
@@ -185,6 +184,7 @@ const VocabularyComprehension: React.FC<Props> = (props) => {
               activeWord={activeTooltip}
               clickCallback={callback}
               allSelected={allSelected}
+              wrongOptions={jugementResult?.options[index]}
               setAllSelected={(tmpList) => {
                 setAllSelected(tmpList);
               }}></QuestionCard>
@@ -203,6 +203,29 @@ const VocabularyComprehension: React.FC<Props> = (props) => {
             </TranslationToolip>
           );
         })}
+        {jugementResult ? (
+          <>
+            <div className={styles.translationText}>
+              <div className={styles.translationTitle}>参考译文</div>
+              {translation.map((item) => {
+                return <div dangerouslySetInnerHTML={{ __html: item }}></div>;
+              })}
+            </div>
+            <div className={styles.translationText}>
+              <div className={styles.translationTitle}>材料分析</div>
+              <div>{jugementResult?.passage_abstract}</div>
+            </div>
+          </>
+        ) : null}
+        {selectedWord ? (
+          <WordTranslationBox
+            mousePoint={mousePoint}
+            word={selectedWord}
+            closeWordTranslationBox={closeWordTranslationBox}
+            curTranslation={curTranslation}
+            curEnglishText={curEnglishText}
+          />
+        ) : null}
       </div>
     </ReadingWrapper>
   );

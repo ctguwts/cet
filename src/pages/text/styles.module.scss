@@ -1,0 +1,14 @@
+.parent {
+  background-color: red;
+  display: flex;
+}
+
+.left {
+  flex: 1;
+  background-color: green;
+}
+
+.right {
+  flex: 1;
+  background-color: pink;
+}

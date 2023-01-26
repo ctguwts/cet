@@ -53,6 +53,17 @@
       // border: 1px solid #4c91ff;
     }
   }
+
+  .correct {
+    background-color: rgb(246, 255, 237) !important;
+    border: 1px solid rgb(186, 236, 145);
+    color: #0dab58;
+  }
+  .wrong {
+    border: 1px solid rgb(251, 204, 199);
+    background-color: rgb(254, 242, 240) !important;
+    color: #ff5c39;
+  }
   .questionNumber {
     border: 1px solid rgb(210, 210, 210);
     background-color: rgb(235, 235, 235);
@@ -70,13 +81,23 @@
       color: #4c91ff !important;
     }
   }
+  .textCorrect {
+    span {
+      color: #0dab58 !important;
+    }
+  }
+  .textWrong {
+    span {
+      color: #ff5c39 !important;
+    }
+  }
 }
 
 .secondLineTranslation {
   flex: 1;
   position: relative;
 
-  //词汇理解（选词填空） translationBox是150px，和单词长度一致
+  //词汇理解（选词填空） translationBox是130px，和单词长度一致
   .box {
     box-sizing: border-box;
     margin-top: 10px;
@@ -85,7 +106,7 @@
     padding: 5px 10px;
     font-size: 13px;
     font-weight: 500;
-    width: 150px;
+    width: 130px;
   }
 
   //仔细阅读、长篇阅读、听力 translationBox随内容变化

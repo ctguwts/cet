@@ -21,6 +21,8 @@ interface RadioProps {
   clickCallback?: any; //判断是框选单词 还是 点击句子
   showSecondLineTranslation?: any;
   grayIndex?: any; //灰色选项，表示被选过。index表示第几题选了该按钮
+  correct?: any; //true表示已经交卷，且正确
+  wrong?: any; //true表示已经交卷，且错误
 }
 
 const indexToOption = (index) => {
@@ -54,6 +56,8 @@ export const WtsRadio: React.FC<RadioProps> = (props: RadioProps) => {
     clickCallback,
     showSecondLineTranslation,
     grayIndex,
+    correct,
+    wrong,
   } = props;
   const toolTipWidth = useMemo(() => {
     return Math.max(document.getElementById(chinese)?.offsetWidth, 300);
@@ -67,7 +71,9 @@ export const WtsRadio: React.FC<RadioProps> = (props: RadioProps) => {
             styles.circleBase,
             { [styles.circle]: !selected && !grayIndex },
             { [styles.circleGray]: !selected && grayIndex },
-            { [styles.activeCircle]: selected },
+            { [styles.activeCircle]: selected && !correct && !wrong },
+            { [styles.correct]: correct },
+            { [styles.wrong]: wrong },
           )}
           onClick={() => {
             if (disabled) {
@@ -78,7 +84,7 @@ export const WtsRadio: React.FC<RadioProps> = (props: RadioProps) => {
           {indexToOption(optionIndex)}
           {grayIndex && !selected ? <div className={styles.questionNumber}>{grayIndex}</div> : null}
         </div>
-        <div className={styles.text} id={chinese}>
+        <div id={chinese} className={cls(styles.text, { [styles.textCorrect]: correct, [styles.textWrong]: wrong })}>
           <TranslationToolip
             isOpen={activeTooltip === questionIndex + chinese}
             // title={<WordTranslation chinese={chinese} />}

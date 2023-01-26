@@ -6,6 +6,8 @@ import { WtsRadio } from '@/components/wts-radios';
 
 import styles from './styles.module.scss';
 import { findGrayIndex, useGetAllSelected } from '@/utils/useGetAllSelected';
+import { indexToOption, isCorrect, isWrong } from '@/utils';
+import AnswerAnalysis from '@/components/answer-analysis';
 
 interface Props {
   questionWords?: any;
@@ -16,6 +18,7 @@ interface Props {
   clickCallback?: any;
   allSelected?: any; //用户作答
   setAllSelected?: any;
+  wrongOptions: any; //判卷结果
 }
 
 const QuestionCard: React.FC<Props> = (props) => {
@@ -28,6 +31,7 @@ const QuestionCard: React.FC<Props> = (props) => {
     clickCallback,
     allSelected,
     setAllSelected,
+    wrongOptions,
   } = props;
 
   const [select, setSelect] = useState();
@@ -36,11 +40,9 @@ const QuestionCard: React.FC<Props> = (props) => {
   useGetAllSelected({ allSelected, setAllSelected, questionIndex, selected: select });
 
   useEffect(() => {
-    console.log('你改变了选项', select);
     if (typeof select != 'number') return;
     let questionDom = document.getElementById(String(questionIndex));
     questionDom.innerText = `${questionIndex}.${questionWords[select as number]}`;
-    console.log(document.getElementById(String(questionIndex)));
   }, [select]);
 
   return (
@@ -68,20 +70,31 @@ const QuestionCard: React.FC<Props> = (props) => {
                 chinese={questionWordsChinese[index]}
                 clickCallback={clickCallback}
                 showSecondLineTranslation={showTranslation}
-                grayIndex={findGrayIndex(allSelected, index)}
+                grayIndex={findGrayIndex(allSelected, index, wrongOptions)}
+                disabled={wrongOptions}
+                correct={isCorrect(wrongOptions, index)}
+                wrong={isWrong(wrongOptions, index)}
               />
             </div>
           );
         })}
-        {/* i是为了在flex布局下，最后一行填满元素 */}
         <i></i>
         <i></i>
         <i></i>
         <i></i>
         <i></i>
       </div>
+      <AnswerAnalysis wrongOptions={wrongOptions} />
     </div>
   );
 };
 
 export default QuestionCard;
+
+{
+  /* <i></i>
+<i></i>
+<i></i>
+<i></i>
+<i></i> */
+}

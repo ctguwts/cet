@@ -59,24 +59,15 @@ export const useGetAllSelected = (props: Props) => {
   }, [selected]);
 };
 
-/* 已废弃
-该函数仅在 选词填空 中使用，allSelected表示用户的作答，optionIndex表示选项的index，
-返回ture表示该选项在其他作答中被选择过，因此变灰
-*/
-export const isSelectedInOtherQuestion = (allSelected, optionIndex) => {
-  for (let i = 0; i < allSelected.length; i++) {
-    if (allSelected[i]?.option === optionIndex) {
-      return true;
-    }
-  }
-  return false;
-};
-
 /* 
 该函数仅在 选词填空 中使用，allSelected表示用户的作答，optionIndex表示选项的index，
 返回值表示该选项第几题被选过
 */
-export const findGrayIndex = (allSelected, optionIndex) => {
+export const findGrayIndex = (allSelected, optionIndex, wrongOptions) => {
+  // 如果wrongOptions存在，表示已经判卷，则不要展示第几题被选过
+  if (wrongOptions) {
+    return 0;
+  }
   for (let i = 0; i < allSelected.length; i++) {
     if (allSelected[i]?.option === optionIndex) {
       return allSelected[i]?.questionIndex;

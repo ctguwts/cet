@@ -36,9 +36,7 @@ const ReadingDetail: React.FC<Props> = (props) => {
 
   const [jugementResult, setJudgementResult] = useState<any>(); //判卷结果
 
-  const [activeTooltip, setActiveTooltip] = useState(
-    '在许多植物中，无法消化的种子皮使种子不受伤害地通过鸟类的消化系统。',
-  ); //当前需要ToolTip的句子
+  const [activeTooltip, setActiveTooltip] = useState('在许多植物中，无法消化的种子皮使种子不受伤害地通过鸟类的消化系统。'); //当前需要ToolTip的句子
 
   const {
     judgementResultModal,

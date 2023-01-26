@@ -33,6 +33,20 @@
   & > i {
     min-width: 150px;
   }
+
+  .wrong {
+    border: 1px solid rgb(251, 204, 199);
+    background-color: rgb(254, 242, 240) !important;
+    border-radius: 4px;
+    color: #ff5c39;
+  }
+
+  .correct {
+    border-radius: 4px;
+    border: 1px solid rgb(186, 236, 145);
+    background-color: rgb(246, 255, 237) !important;
+    color: #0dab58;
+  }
 }
 
 .tootip {

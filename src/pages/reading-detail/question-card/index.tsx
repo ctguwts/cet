@@ -9,6 +9,8 @@ import { WtsRadio } from '@/components/wts-radios';
 import styles from './styles.module.scss';
 import { useGetAllSelected } from '@/utils/useGetAllSelected';
 import classNames from 'classnames';
+import { isCorrect, isSelected, isWrong } from '@/utils';
+import AnswerAnalysis from '@/components/answer-analysis';
 
 interface Props {
   // question: any;
@@ -80,125 +82,30 @@ const QuestionCard: React.FC<Props> = (props) => {
           </div>
         ) : null}
       </div>
-      {!wrongOptions ? (
-        // <div className={styles.options}>
-        //   <Radio.Group onChange={onChange}>
-        //     {optionsEnglish.map((item, index) => {
-        //       return (
-        //         <div className={cls(styles.item, { [styles.selected]: index === selected })}>
-        //           <Radio value={index}>
-        //             {indexToOption(index)}. {item}
-        //           </Radio>
-        //         </div>
-        //       );
-        //     })}
-        //   </Radio.Group>
-        // </div>
-        optionsEnglish.map((item, index) => {
-          return (
-            <div
-              className={cls(styles.item, {
-                [styles.selected]: index === selected,
-              })}>
-              <WtsRadio
-                questionIndex={questionIndex}
-                optionIndex={index}
-                sentense={item}
-                selected={selected === index}
-                setSelect={setSelected}
-                activeTooltip={activeSentence}
-                chinese={optionsChinese[index]}
-                clickCallback={clickCallback}
-                showSecondLineTranslation={showTranslation}
-              />
-            </div>
-          );
-        })
-      ) : (
-        <div className={styles.wrongOptions}>
-          {optionsEnglish.map((item, index) => {
-            return (
-              <div
-                className={cls(
-                  styles.item,
-                  {
-                    [styles.wrong]:
-                      wrongOptions.your_answer === index && wrongOptions.correct_answer !== wrongOptions.your_answer,
-                  },
-                  {
-                    [styles.correct]:
-                      wrongOptions.your_answer === index && wrongOptions.correct_answer === wrongOptions.your_answer,
-                  },
-                )}>
-                <WtsRadio
-                  questionIndex={questionIndex}
-                  optionIndex={index}
-                  sentense={item}
-                  selected={selected === index}
-                  setSelect={setSelected}
-                  activeTooltip={activeSentence}
-                  chinese={optionsChinese[index]}
-                  clickCallback={clickCallback}
-                  disabled
-                />
-              </div>
-            );
-          })}
-        </div>
-      )}
-      <div className={styles.analysisWrapper}>
-        {wrongOptions ? (
-          <div className={styles.analysis}>
-            <div className={styles.box}>
-              <div className={styles.tag}>
-                <Tag color='volcano'>正确答案</Tag>
-              </div>
-              <div className={styles.text}>
-                你的选择:
-                {indexToOption(wrongOptions.your_answer)} 正确选项:
-                {indexToOption(wrongOptions.correct_answer)}
-              </div>
-            </div>
-            <div className={styles.box}>
-              <div className={styles.tag}>
-                <Tag color='orange'>答案解析</Tag>
-              </div>
-              <div
-                className={styles.text}
-                dangerouslySetInnerHTML={{
-                  __html: wrongOptions.analysis,
-                }}
-              />
-            </div>
-            <div className={styles.box}>
-              <div className={styles.tag}>
-                <Tag color='green'>干扰项分析</Tag>
-              </div>
-              <div className={styles.text}>{wrongOptions.interference}</div>
-            </div>
-            <div className={styles.box}>
-              <div className={styles.tag}>
-                <Tag color='geekblue'>题干翻译</Tag>
-              </div>
-              <div className={styles.text}>{questionChinese}</div>
-            </div>
-            <div className={styles.box}>
-              <div className={styles.tag}>
-                <Tag color='purple'>选项翻译</Tag>
-              </div>
-              <div className={styles.text}>
-                {optionsChinese.map((item, index) => {
-                  return (
-                    <div>
-                      {indexToOption(index)}.{item}
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+      {optionsEnglish.map((item, index) => {
+        return (
+          <div
+            className={cls(styles.item, {
+              [styles.selected]: isSelected(index, selected, wrongOptions),
+            })}>
+            <WtsRadio
+              questionIndex={questionIndex}
+              optionIndex={index}
+              sentense={item}
+              selected={selected === index}
+              setSelect={setSelected}
+              activeTooltip={activeSentence}
+              chinese={optionsChinese[index]}
+              clickCallback={clickCallback}
+              showSecondLineTranslation={showTranslation}
+              disabled={wrongOptions}
+              correct={isCorrect(wrongOptions, index)}
+              wrong={isWrong(wrongOptions, index)}
+            />
           </div>
-        ) : null}
-      </div>
+        );
+      })}
+      <AnswerAnalysis wrongOptions={wrongOptions} questionChinese={questionChinese} optionsChinese={optionsChinese} />
     </div>
   );
 };

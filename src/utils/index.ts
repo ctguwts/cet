@@ -44,28 +44,19 @@ export const indexToOption = (index) => {
   return map[index];
 };
 
-// 创建、删除tooltip容器
-// const useTooltipContainer = () => {
-//   const createContainer = () => {
-//     const ele = document.createElement('SPAN');
-//     ele.id = 'TooltipContainer';
-//     document.body.appendChild(ele);
-//   };
+//交卷后，判断该题是否正确。wrongOptions是判卷解雇，index是该题的下标（从0开始）
+export const isCorrect = (wrongOptions, index) => {
+  return wrongOptions?.your_answer === index && wrongOptions?.correct_answer === wrongOptions?.your_answer;
+};
+export const isWrong = (wrongOptions, index) => {
+  return wrongOptions?.your_answer === index && wrongOptions?.correct_answer !== wrongOptions?.your_answer;
+};
 
-//   const deleteContainner = () => {
-//     document.getElementById('TooltipContainer').innerHTML = '';
-//   };
-
-//   const getContainer = () => {
-//     let res = document.getElementById('TooltipContainer');
-//     console.log('res', res);
-//     return res;
-//   };
-
-//   return {
-//     createContainer: createContainer,
-//     deleteContainner: deleteContainner,
-//     getContainer: getContainer,
-//   };
-// };
-// export default useTooltipContainer;
+//判断该选项是否处于选中状态
+export const isSelected = (index, selected, wrongOptions) => {
+  //如果已经交卷，则不会展示选中状态
+  if (wrongOptions) {
+    return false;
+  }
+  return index === selected;
+};
