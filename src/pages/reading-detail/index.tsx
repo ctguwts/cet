@@ -21,6 +21,7 @@ import ExamTopBar from '@/components/exam-top-bar';
 import { useJudgementResultModal } from '@/components/judgement-result-modal';
 import ReadingWrapper from '@/components/reading-wrapper';
 import { WtsRadio } from '@/components/wts-radios';
+import PassageAnalysis from '@/components/passage-analysis';
 
 import styles from './styles.module.scss';
 
@@ -38,11 +39,7 @@ const ReadingDetail: React.FC<Props> = (props) => {
 
   const [activeTooltip, setActiveTooltip] = useState('在许多植物中，无法消化的种子皮使种子不受伤害地通过鸟类的消化系统。'); //当前需要ToolTip的句子
 
-  const {
-    judgementResultModal,
-    closeModal: closeJudgementResultModal,
-    openModal: openJudgementResultModal,
-  } = useJudgementResultModal();
+  const { judgementResultModal, closeModal: closeJudgementResultModal, openModal: openJudgementResultModal } = useJudgementResultModal();
 
   const callback = (event, chinese, english, questionIndex) => {
     event.stopPropagation();
@@ -135,28 +132,7 @@ const ReadingDetail: React.FC<Props> = (props) => {
             );
           })}
         </div>
-        {jugementResult ? (
-          <>
-            <div className={styles.translationText}>
-              <div className={styles.translationTitle}>参考译文</div>
-              {reading_detail_translation_text.map((item) => {
-                return <div dangerouslySetInnerHTML={{ __html: item }}></div>;
-              })}
-            </div>
-            <div className={styles.translationText}>
-              <div className={styles.translationTitle}>材料分析</div>
-              <div>{jugementResult?.passage_abstract}</div>
-            </div>
-            <div className={styles.translationText}>
-              <div className={styles.translationTitle}>重点单词</div>
-              <div>
-                {jugementResult?.important_words.map((item) => {
-                  return <div>{item}</div>;
-                })}
-              </div>
-            </div>
-          </>
-        ) : null}
+        {jugementResult ? <PassageAnalysis translation={reading_detail_translation_text} jugementResult={jugementResult} /> : null}
         {selectedWord ? (
           <WordTranslationBox
             mousePoint={mousePoint}

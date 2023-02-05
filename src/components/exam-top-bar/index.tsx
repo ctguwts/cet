@@ -22,9 +22,7 @@ const ExamTopBar: React.FC<Props> = (props: Props) => {
   return (
     <div className={styles.wrapper}>
       <div className={styles.examTopbar}>
-        <div className={styles.leftContent}>
-          <img src={logo}></img>
-        </div>
+        <div className={styles.leftContent}>{/* <img src={logo}></img> */}</div>
         <div className={styles.title}>{title}</div>
         <div className={styles.rightContent}>
           <div className={styles.clock}>

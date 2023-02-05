@@ -36,6 +36,14 @@ const AnswerAnalysis: React.FC<Props> = (props) => {
               }}
             />
           </div>
+          {wrongOptions?.tyzd ? (
+            <div className={styles.box}>
+              <div className={styles.tag}>
+                <Tag color='green'>听音重点</Tag>
+              </div>
+              <div className={styles.text}>{wrongOptions?.tyzd}</div>
+            </div>
+          ) : null}
           {wrongOptions?.interference ? (
             <div className={styles.box}>
               <div className={styles.tag}>

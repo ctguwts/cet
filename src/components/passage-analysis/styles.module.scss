@@ -1,0 +1,17 @@
+.container {
+  .translationText {
+    font-size: 16px;
+    color: rgb(128, 128, 128);
+    cursor: default;
+
+    .translationTitle {
+      color: #494949;
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-weight: 700;
+      height: 85px;
+    }
+  }
+}

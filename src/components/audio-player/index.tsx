@@ -1,7 +1,8 @@
 import React, { memo, Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import cls from 'classnames';
-import { Slider, Radio } from 'antd';
-import { PlayCircleFilled, PlayCircleOutlined, RetweetOutlined } from '@ant-design/icons';
+import { Slider, Radio, Dropdown, Space, Tooltip } from 'antd';
+import type { MenuProps } from 'antd';
+import { PlayCircleFilled, PauseCircleFilled, RetweetOutlined } from '@ant-design/icons';
 import audioSrc from './2.mp3';
 import { formatMinuteSecond } from '@/utils/format-utils';
 import styles from './styles.module.scss';
@@ -26,6 +27,8 @@ const AudioPlayer: React.FC<Props> = (props: Props) => {
   const [duration, setDuration] = useState(221);
   const [finalIndex, setFinalIndex] = useState<number>();
   const audioRef = useRef<HTMLAudioElement>();
+  const [currentSpeed, setCurrentSpeed] = useState(1.0);
+  const [repeatSentence, setRepeatSentence] = useState<number | boolean>(false);
 
   const [mode, setMode] = useState<TabMode>('sentence');
 
@@ -72,10 +75,15 @@ const AudioPlayer: React.FC<Props> = (props: Props) => {
 
   //点击句子时触发
   const clickSentence = (index) => {
+    //改变时间
     const lrcTime = currentLyrics[index];
     setCurrentTime(lrcTime / 1000);
     setProgress((lrcTime / 1000 / duration) * 100);
     audioRef.current.currentTime = lrcTime / 1000;
+
+    //改变活跃句子
+    console.log('你点击了', index);
+    setRepeatSentence(index);
   };
 
   const timeUpdate = (value) => {
@@ -90,8 +98,15 @@ const AudioPlayer: React.FC<Props> = (props: Props) => {
     for (; i < lrcLength; i++) {
       const lrcTime = currentLyrics[i];
       if (currentTime * 1000 < lrcTime) {
+        console.log('lrcTime', lrcTime);
         break;
       }
+    }
+
+    //循环播放时，如果下一秒就到下一句话了，那就跳转到该句的起始点
+    if (repeatSentence && i - 1 !== repeatSentence) {
+      clickSentence(repeatSentence);
+      return;
     }
     setFinalIndex(i - 1);
   };
@@ -125,16 +140,89 @@ const AudioPlayer: React.FC<Props> = (props: Props) => {
   //   // setDuration(currentSong.dt);
   // }, []);
 
+  //curspeed改变后，audio的速度改变
+  useEffect(() => {
+    audioRef.current.playbackRate = currentSpeed;
+  }, [currentSpeed]);
+
+  //速度下拉框的选项
+  const items: MenuProps['items'] = [
+    {
+      key: '1',
+      label: (
+        <a
+          onClick={() => {
+            setCurrentSpeed(0.5);
+          }}>
+          0.5倍
+        </a>
+      ),
+    },
+    {
+      key: '2',
+      label: (
+        <a
+          onClick={() => {
+            setCurrentSpeed(0.8);
+          }}>
+          0.8倍
+        </a>
+      ),
+    },
+    {
+      key: '3',
+      label: (
+        <a
+          onClick={() => {
+            setCurrentSpeed(1.0);
+          }}>
+          1.0倍
+        </a>
+      ),
+    },
+    {
+      key: '4',
+      label: (
+        <a
+          onClick={() => {
+            setCurrentSpeed(1.5);
+          }}>
+          1.5倍
+        </a>
+      ),
+    },
+    {
+      key: '5',
+      label: (
+        <a
+          onClick={() => {
+            setCurrentSpeed(2.0);
+          }}>
+          2.0倍
+        </a>
+      ),
+    },
+  ];
+
   return (
     <div className={styles.container}>
       <audio ref={audioRef} src={audioSrc} onTimeUpdate={timeUpdate} onEnded={timeEnded} />
       <div className={styles.progress}>
-        <PlayCircleFilled
-          className={styles.playIcon}
-          onClick={() => {
-            play();
-          }}
-        />
+        {isPlaying ? (
+          <PauseCircleFilled
+            className={styles.playIcon}
+            onClick={() => {
+              play();
+            }}
+          />
+        ) : (
+          <PlayCircleFilled
+            className={styles.playIcon}
+            onClick={() => {
+              play();
+            }}
+          />
+        )}
 
         <div className={styles.slider}>
           <Slider value={progress} onChange={sliderChange} onAfterChange={sliderAfterChange} step={0.01} />
@@ -144,9 +232,25 @@ const AudioPlayer: React.FC<Props> = (props: Props) => {
           </div>
         </div>
 
-        <div className={styles.item}>1.0倍</div>
+        <div className={styles.item} style={{ cursor: 'pointer' }}>
+          <Dropdown menu={{ items }}>
+            <Space>{`${currentSpeed}倍`}</Space>
+          </Dropdown>
+        </div>
 
-        <RetweetOutlined className={cls(styles.circleIcon, styles.item)} />
+        <Tooltip title='单句循环'>
+          <RetweetOutlined
+            className={cls(styles.circleIcon, styles.item)}
+            style={{ color: repeatSentence ? 'rgb(106, 165, 244)' : null }}
+            onClick={() => {
+              if (!repeatSentence) {
+                setRepeatSentence(finalIndex);
+              } else {
+                setRepeatSentence(false);
+              }
+            }}
+          />
+        </Tooltip>
       </div>
       <div className={styles.radioGroup}>
         <Radio.Group onChange={handleModeChange} value={mode} style={{ marginBottom: 8 }}>

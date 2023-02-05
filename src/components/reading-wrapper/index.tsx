@@ -1,5 +1,5 @@
 import React, { memo, ReactNode, Suspense, useState } from 'react';
-import { Divider } from 'antd';
+import { Divider, Breadcrumb } from 'antd';
 import ExamTopBar from '@/components/exam-top-bar';
 import styles from './styles.module.scss';
 
@@ -27,7 +27,18 @@ const ReadingWrapper: React.FC<Props> = (props: Props) => {
         }}>
         <div className={styles.left} style={{ display: isExpand ? 'none' : 'flex' }}>
           <div className={styles.topRow}>
-            <div>我是面包屑</div>
+            <Breadcrumb>
+              <Breadcrumb.Item>首页</Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <a href=''>听力</a>
+              </Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <a href=''>长对话</a>
+              </Breadcrumb.Item>
+              <Breadcrumb.Item>
+                <a href=''>2022年6月</a>
+              </Breadcrumb.Item>
+            </Breadcrumb>
           </div>
           <Divider className={styles.divider} />
           <div

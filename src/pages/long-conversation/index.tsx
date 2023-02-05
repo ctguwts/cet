@@ -5,8 +5,8 @@ import { Tooltip, Divider, Modal } from 'antd';
 import WordTranslationBox from '@/components/word-translation-box';
 
 import { Point } from '@/const/types';
-import { vocabulary_judgement_result } from '@/mock-data/data';
-// import QuestionCard from './question-card';
+import { jugement_result_long_conversation } from '@/mock-data/data';
+import QuestionCard from './question-card';
 import { getSelectionWord } from '@/utils';
 
 import { useJudgementResultModal } from '@/components/judgement-result-modal';
@@ -18,8 +18,8 @@ import TranslationToolip from '@/components/translation-tooltip';
 import AudioPlayer from '@/components/audio-player';
 
 const currentLyrics = [
-  3003, 5021, 9016, 10094, 14051, 19060, 28036, 31013, 39085, 42000, 48041, 58072, 60087, 63099, 72085, 80070, 87060, 94038, 108023, 114097, 120090, 129011, 130081, 135052, 141078, 160054, 181005,
-  200096,
+  3003, 5021, 9016, 10094, 14051, 19060, 28036, 31013, 39085, 42000, 48041, 58072, 60087, 63099, 72085, 80070, 87060, 94038, 108023, 114097, 120090,
+  129011, 130081, 135052, 141078, 160054, 181005, 200096,
 ];
 
 const englishArr = [
@@ -121,7 +121,45 @@ const chineseClueArr = [
   '问题15：女士认为男士可以怎样做笔记？',
 ];
 
-const question_index = [26, 27, 28, 29, 30, 31, 32, 33, 34, 35];
+const optionEnglish = [
+  ['Prepare a study guide.', 'Consult his advisors.', 'Go over his notes regularly.', 'Take stress-relief sessions.'],
+  [
+    'His worksheets are terribly messy.',
+    'He finds the workload too heavy.',
+    'His study folder is badly disorganized.',
+    'He has difficulty taking notes quickly.',
+  ],
+  ['A visual learner.', 'An emotional learner.', 'An organized learner.', 'A logical learner.'],
+  [
+    'Arrange them using color and pictures.',
+    'Restructure them in a logical way.',
+    'Commit them to memory after class.',
+    'Organize them into a well-connected story.',
+  ],
+];
+
+const optionsChinese = [
+  ['准备一份学习指南。', '咨询他的指导老师。', '定期复习他的笔记。', '参加减压课程。'],
+  ['他的活页练习题非常凌乱。', '他觉得工作量太繁重。', '他的学习文件夹非常混乱。', '他难以快速记笔记。'],
+  ['视觉学习者。', '情感学习者。', '有条理的学习者。', '逻辑学习者。'],
+  ['使用色彩和图画整理它们。', '以逻辑的方式重组它们。', '下课后牢记它们。', '将它们整理成一个联系紧密的故事。'],
+];
+
+const tyzd = [
+  '音频对应处前面男士询问女士是否可以给一些建议，问答之间易出考点，考生需留意接下来的回答。',
+  '音频对应处出现了main problem is..这样的表达，通常在音频中如果出现main、most或者比较级的表达的话，极易出现考点，考生需留意。',
+  null,
+  '音频对应处出现了表示建议的表达I suggest，之后常常会出现考点，考生需留意。',
+];
+
+const interference = [
+  'B选项音频未提及，故排除；C选项中的notes为干扰信息，音频并未提及要定期复习笔记，故排除；D选项中的stress-relief为干扰信息，音频并未提及减压相关的课程，故排除。',
+  'A选项中的terribly messy在音频中未提及，故排除；B选项音频虽有提及，但并非题目所问的男士在学习中最大的问题，故排除；D选项中的notes为干扰信息，音频并未提及这位男士难以快速记笔记，故排除。',
+  'A、D选项音频虽均有提及，但并非题目所问的女士所属的学习者类型，故排除；C选项为音频中badly organized和learner的杂糅，音频未提及这类学习者，故排除。',
+  'B选项虽可对应音频中logical learner的学习方式，但与题目所问不符，故排除；C选项音频未提及，故排除；D选项音频虽有提及，但这是这位女士自己作为情感学习者的记笔记方式，与题目所问不符，故排除。',
+];
+
+const questionIndex = [12, 13, 14, 15];
 
 const translation = [
   '<b>关于虚假度假别墅网站的安全警示</b>',
@@ -206,7 +244,7 @@ const LongConversation: React.FC<Props> = (props) => {
     //此处发起网络请求，把答案提交给后端
     console.log('提交，提交网络请求');
     console.log('提交的作答是', allSelected);
-    setJudgementResult(vocabulary_judgement_result);
+    setJudgementResult(jugement_result_long_conversation);
     openJudgementResultModal();
   };
 
@@ -215,28 +253,36 @@ const LongConversation: React.FC<Props> = (props) => {
   }, [activeTooltip]);
 
   return (
-    <ReadingWrapper clickOuter={clickOuter} okHandler={okHandler} topBarTitle='2022年卷二段落匹配' rightNoPadding={true}>
+    <ReadingWrapper clickOuter={clickOuter} okHandler={okHandler} topBarTitle='2022年6月长对话' rightNoPadding={true}>
       <div className={styles.left}>
-        {/* {question_index.map((item, index) => {
+        {questionIndex.map((item, index) => {
           return (
             <QuestionCard
-              questionWords={question_words}
-              questionIndex={question_index[index]}
-              questionWordsChinese={question_words_chinese}
-              setActiveWord={setActiveTooltip}
-              activeWord={activeTooltip}
+              questionIndex={questionIndex[index]}
+              // questionEnglish={reading_question_english[index]}
+              // questionChinese={reading_question_chinese[index]}
+              optionsEnglish={optionEnglish[index]}
+              optionsChinese={optionsChinese[index]}
+              setActiveSentence={(sentence) => {
+                setActiveTooltip(sentence);
+              }} //设置问题的activeTooltip
+              activeSentence={activeTooltip}
               clickCallback={callback}
-              allSelected={allSelected}
               wrongOptions={jugementResult?.options[index]}
-              setAllSelected={(tmpList) => {
-                setAllSelected(tmpList);
-              }}></QuestionCard>
+              setAllSelected={setAllSelected} //设置用户作答（本篇阅读，共五题）
+              allSelected={allSelected} //用户作答
+            />
           );
-        })} */}
-        我是左侧题目
+        })}
       </div>
       <div className={styles.content} id='vocabulary_comprehension_content'>
-        <AudioPlayer currentLyrics={currentLyrics} englishArr={englishArr} chineseArr={chineseArr} englishClueArr={englishClueArr} chineseClueArr={chineseClueArr} />
+        <AudioPlayer
+          currentLyrics={currentLyrics}
+          englishArr={englishArr}
+          chineseArr={chineseArr}
+          englishClueArr={englishClueArr}
+          chineseClueArr={chineseClueArr}
+        />
         {/* {jugementResult ? (
           <>
             <div className={styles.translationText}>
@@ -252,7 +298,13 @@ const LongConversation: React.FC<Props> = (props) => {
           </>
         ) : null} */}
         {selectedWord ? (
-          <WordTranslationBox mousePoint={mousePoint} word={selectedWord} closeWordTranslationBox={closeWordTranslationBox} curTranslation={curTranslation} curEnglishText={curEnglishText} />
+          <WordTranslationBox
+            mousePoint={mousePoint}
+            word={selectedWord}
+            closeWordTranslationBox={closeWordTranslationBox}
+            curTranslation={curTranslation}
+            curEnglishText={curEnglishText}
+          />
         ) : null}
       </div>
     </ReadingWrapper>

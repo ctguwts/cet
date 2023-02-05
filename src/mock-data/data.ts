@@ -497,8 +497,7 @@ export const reading_detail_example = [
     chinese: '例如，许多树木的根系中必须有菌根真菌，这种真菌对于树木是必不可少的，因为它们促进了土壤中矿物质的吸收。',
   },
   {
-    english:
-      'In turn, the fungi rely on the trees to photosynthesize; they use some of the tree’s chemical food as their only energy source.',
+    english: 'In turn, the fungi rely on the trees to photosynthesize; they use some of the tree’s chemical food as their only energy source.',
     chinese: '反过来，真菌则依靠树木进行光合作用。他们使用树木的某些化学食物作为唯一能源。',
   },
   {
@@ -512,8 +511,7 @@ export const reading_detail_example = [
   },
 
   {
-    english:
-      'At first glance, the relationship between pinyon pine trees and the pinyon jay does not appear to be one of coevolution.',
+    english: 'At first glance, the relationship between pinyon pine trees and the pinyon jay does not appear to be one of coevolution.',
     chinese: '乍一看，矮松与矮松鸦之间的关系似乎并不是共同进化的一种。',
   },
   {
@@ -533,8 +531,7 @@ export const reading_detail_example = [
     chinese: '一些植物含有有毒种子，这是一种减少损失的策略。',
   },
   {
-    english:
-      'Pinyons, however, have an array of characteristics that combine to encourage jays to visit the pines and help themselves to the seeds.',
+    english: 'Pinyons, however, have an array of characteristics that combine to encourage jays to visit the pines and help themselves to the seeds.',
     chinese: '然而，矮松具有一系列特征，这些特征结合到一起促使矮松鸦到访并且获取矮松种子。',
   },
   {
@@ -555,8 +552,7 @@ export const reading_detail_example = [
     chinese: '在许多植物中，无法消化的种子皮使种子不受伤害地通过鸟类的消化系统。',
   },
   {
-    english:
-      'Pinyon seed coats differ in color between edible and nonviable seeds, signaling the jays as to which they should select.',
+    english: 'Pinyon seed coats differ in color between edible and nonviable seeds, signaling the jays as to which they should select.',
     chinese: '食用和非食用种子的矮松种子皮颜色不同，暗示松鸦该选什么品种的种子。',
   },
   {
@@ -575,8 +571,7 @@ export const reading_detail_example = [
   {
     english:
       'This is a useful behavior for the jays, providing they can retrieve some of the buried seeds during winter, and good for the trees, as the unretrieved seeds are ready to germinate. ',
-    chinese:
-      '对于松鸦来说，这是一种有用的行为：因为它们可以在冬天取回一些埋藏的种子；并且对树木有利，因为未取回的种子已准备好发芽。',
+    chinese: '对于松鸦来说，这是一种有用的行为：因为它们可以在冬天取回一些埋藏的种子；并且对树木有利，因为未取回的种子已准备好发芽。',
   },
   {
     english: 'Still, for the jays to bury any seeds, there must be an abundance of seeds far beyond the jays’ immediate needs.',
@@ -603,8 +598,7 @@ export const reading_detail_example = [
     chinese: '产生如此多的种子需要大量的能量，如此之多的能量使矮松不可能每年产生如此丰收的种子。',
   },
   {
-    english:
-      'More important, however, it would be to the severe disadvantage of the trees to produce large seed crops annually, even if they could.',
+    english: 'More important, however, it would be to the severe disadvantage of the trees to produce large seed crops annually, even if they could.',
     chinese: '然而，更重要的是，即使可以，每年产生大量的种子对矮松严重不利。',
   },
   {
@@ -778,12 +772,7 @@ export const reading_index = [51, 52, 53, 54, 55];
 
 //仔细阅读题目选项 英文
 export const reading_options_english = [
-  [
-    'Advances in education technology.',
-    'Shrinking financial resources.',
-    'Shortage of school facilities.',
-    'Lack of qualified teachers.',
-  ],
+  ['Advances in education technology.', 'Shrinking financial resources.', 'Shortage of school facilities.', 'Lack of qualified teachers.'],
   [
     'Developing the habit of getting up early.',
     'Eating nutritionally well-balanced meals.',
@@ -807,12 +796,7 @@ export const reading_options_english = [
 
 //仔细阅读题目选项 中文
 export const reading_options_chinese = [
-  [
-    '教育技术的进步。教育技术的进步。教育技术的进步。教育技术的进步。教育技术的进步。',
-    '财政资源的缩水。',
-    '学校设施的不足。',
-    '合格教师的缺乏。',
-  ],
+  ['教育技术的进步。教育技术的进步。教育技术的进步。教育技术的进步。教育技术的进步。', '财政资源的缩水。', '学校设施的不足。', '合格教师的缺乏。'],
   ['养成早起的习惯。', '吃营养均衡的食物。', '成长为活生生的人。', '培养与同龄人和老师的关系。'],
   ['它可能有潜在的缺点。', '它可能导致许多教师失业。', '它可能会增加学生的经济负担。', '它可能会彻底改变课堂教学。'],
   ['提高学生的领导能力。', '将学生提升到管理职位。', '使学生适应生活的变化。', '让学生做好准备，在未来具有竞争力。'],
@@ -984,6 +968,173 @@ export const vocabulary_judgement_result = {
       correct_answer: 2,
       analysis:
         '第一步：判断空格处的词性。空格前为名词短语a specific item，空格后为句点，空格处位于宾语从句中，该从句缺少谓语动词，由前面主句的doesn’t require可知，时态为一般现在时，a specific item是单数形式，判断空格处应填入v-s。第二步：判断备选项词性。备选项中的v-s有contains、implies、sources。第三步：语义辨析。结合上下文，此处句意为：FDA并没有要求公司披露某个特定的产品中____哪些额外的化学物质。contains意为“包含”，implies意为“暗示；表明”，sources意为“来自”，填入后可知contains符合句意，故本题答案为C。',
+    },
+  ],
+};
+
+//长篇阅读，long-reading，判卷结果
+export const jugement_result_long_reading = {
+  //文章简介,材料分析
+  passage_abstract:
+    '这是一篇关于网络诈骗的文章，文章探讨了度假别墅的网络骗局现象，并通过权威机构提出的建议，提醒大众学会辨别诈骗行为，以免受到侵害。涉及到这种类型的文章时，我们需要结合高频词积累相关的重点词汇。',
+  //这篇文章的重点单词
+  important_words: [
+    'fake adj. 假的',
+    'prompt v. 促使；导致',
+    'warning n. 警示；警告',
+    'property n. 房产；所有物',
+    'website n. 网站',
+    'consumer n. 消费者',
+    'deception n. 欺骗；骗局',
+    'fraud n. 欺诈；骗子',
+    'sophisticated adj. 复杂的',
+    'authentic adj. 真正的；真实的',
+    'amateur adj. 业余的',
+    'reasonable adj. 合理的',
+    'suspicion n. 怀疑',
+    'invest v. 投资',
+    'trustworthy adj. 值得信赖的',
+    'spot v. 看见；注意到',
+    'transfer n. 转账；转移',
+  ],
+  //错误选项 analysis题目解析 interference干扰项分析
+  tmp: [
+    '<p>第一步，找定位词：词组定位reasonable prices，否定定位not to be suspected</p><p>第二步，段落定位：&#91;D&#93; ..<u>.Prices are kept within reasonable ranges</u> to<u> avoid arousing suspicion....</u></p><p>第三步，寻找同义替换</p><p>题干/原文</p><p>not to be suspected / avoid arousing suspicion</p>',
+  ],
+  options: [
+    {
+      your_answer: 2,
+      correct_answer: 2,
+      analysis:
+        '<p>第一步，找定位词：词组定位steal...information</p><p>第二步，段落定位：&#91;C&#93; ...The fake websites have authentic-sounding names involving a mix of keywords, typically including <u>the place name, “summer”, “villas” or “rentals</u>”. <u>Details</u> of legitimate (合法的) villas are often <u>stolen</u> from other sites... “... They extensively <u>rip off </u>legitimate websites and use a different website name....</p><p>第三步，寻找同义替换</p><p>题干/原文</p><p>villa-booking information / the place name, “summer”, “villas” or “rentals”、Details of legitimate villas</p><p>steal / stolen、rip off</p><p>authentic / legitimate</p>',
+    },
+    {
+      your_answer: 7,
+      correct_answer: 2,
+      analysis:
+        '<p>第一步，找定位词：词组定位bank accounts，否定定位avoid being tracked</p><p>第二步，段落定位：&#91;H&#93; ...“It is <u>hopeless to report</u> fake villa websites to the internet giants who host them,” he says. “I found it <u>impossible to speak to anyone</u>. Also, once one <u>bank account</u> gets reported, they simply use another.”</p><p>第三步，寻找同义替换</p><p>题干/原文</p><p>changing their bank accounts / use another</p><p>avoid being tracked / hopeless to report、impossible to speak to anyone</p>',
+    },
+    {
+      your_answer: 4,
+      correct_answer: 4,
+      analysis:
+        '<p>第一步，找定位词：否定定位not going on the holiday</p><p>第二步，段落定位：&#91;E&#93; ...He also suggests asking someone <u>not going on the holiday</u> to have a look at the website. “They might spot problems you don’t spot.”...</p><p>第三步，寻找同义替换</p><p>题干/原文</p><p>people / someone</p><p>detect / have a look at、spot</p><p>frauds / problems</p>',
+    },
+    {
+      your_answer: 0,
+      correct_answer: 0,
+      analysis:
+        '<p>第一步，找定位词：大写定位More and more British，否定定位nonexistent</p><p>第二步，段落定位：&#91;A&#93; During the <u>British</u> winter, the thought of two weeks in a coastal villa (别墅)...For a <u>growing number of people</u>, however... they find that the property they have paid thousands for <u>does not exist</u> ....</p><p>第三步，寻找同义替换</p><p>题干/原文</p><p>More and more / a growing number of</p><p>seaside villas / coastal villa、property</p><p>nonexistent / does not exist</p>',
+    },
+    {
+      your_answer: 10,
+      correct_answer: 10,
+      analysis:
+        '<p>第一步，找定位词：词组定位an agent’s name，否定定位avoid falling into traps</p><p>第二步，段落定位：&#91;K&#93; ...“I Googled the <u>agent’s name</u> and there were lots of complaints about him being a fraudster. If only I’d Googled before but I never thought of it.”...</p><p>第三步，寻找同义替换</p><p>题干/原文</p><p>本题无明显的同义替换，题干是对原文信息的归纳概括。原文指出，一位受害者在谷歌搜索了代理人的名字，发现有很多人抱怨他是骗子。并且她还表示，要是当时提前搜索一下信息就好了。这说明，想要避免受骗，提前在网站上搜索信息是很有必要的。</p>',
+    },
+    {
+      your_answer: 0,
+      correct_answer: 5,
+      analysis:
+        '<p>第一步，找定位词：否定定位difficult to identify，词组定位an online safety expert</p><p>第二步，段落定位：&#91;F&#93; ...“There is <u>no way to definitely know</u> who they are,” says <u>Neate</u>....</p><p>第三步，寻找同义替换</p><p>题干/原文</p><p>difficult / no way</p><p>identify / definitely know</p>',
+    },
+    {
+      your_answer: 3,
+      correct_answer: 1,
+      analysis:
+        '<p>第一步，找定位词：词组定位frequent occurrence</p><p>第二步，段落定位：&#91;B&#93; Consumers have been warned to be aware of the potential for deception in this market, which is <u>far from uncommon....</u></p><p>第三步，寻找同义替换</p><p>题干/原文</p><p>Holidaymakers / Consumers</p><p>alerted / warned</p><p>frequent / far from uncommon</p><p>frauds / deception</p>',
+    },
+    {
+      your_answer: 2,
+      correct_answer: 8,
+      analysis:
+        '<p>第一步，找定位词：词组定位protect themselves from falling victim</p><p>第二步，段落定位：&#91;I&#93; For now the only way to <u>stop fraudsters</u> appears ultimately to lie in the hands of the consumer.</p><p>第三步，寻找同义替换</p><p>题干/原文</p><p>holidaymakers / consumer</p><p>protect themselves from falling victim to frauds / stop fraudsters</p>',
+    },
+    {
+      your_answer: 3,
+      correct_answer: 4,
+      analysis:
+        '<p>第一步，找定位词：否定定位not to make payments，词组定位bank transfer</p><p>第二步，段落定位：&#91;E&#93; ...Another potential red flag is being asked to pay by <u>bank transfer</u>... “We generally <u>recommend other forms of payment</u>, like credit card.”</p><p>第三步，寻找同义替换</p><p>题干/原文</p><p>advised / recommend</p><p>make payments / pay</p>',
+    },
+    {
+      your_answer: 1,
+      correct_answer: 3,
+      analysis:
+        '<p>第一步，找定位词：词组定位reasonable prices，否定定位not to be suspected</p><p>第二步，段落定位：&#91;D&#93; ..<u>.Prices are kept within reasonable ranges</u> to<u> avoid arousing suspicion....</u></p><p>第三步，寻找同义替换</p><p>题干/原文</p><p>not to be suspected / avoid arousing suspicion</p>',
+    },
+  ],
+};
+
+//long_conversation，判卷结果
+export const jugement_result_long_conversation = {
+  //文章简介,材料分析
+  passage_abstract:
+    '这是一篇关于网络诈骗的文章，文章探讨了度假别墅的网络骗局现象，并通过权威机构提出的建议，提醒大众学会辨别诈骗行为，以免受到侵害。涉及到这种类型的文章时，我们需要结合高频词积累相关的重点词汇。',
+  //这篇文章的重点单词
+  important_words: [
+    'fake adj. 假的',
+    'prompt v. 促使；导致',
+    'warning n. 警示；警告',
+    'property n. 房产；所有物',
+    'website n. 网站',
+    'consumer n. 消费者',
+    'deception n. 欺骗；骗局',
+    'fraud n. 欺诈；骗子',
+    'sophisticated adj. 复杂的',
+    'authentic adj. 真正的；真实的',
+    'amateur adj. 业余的',
+    'reasonable adj. 合理的',
+    'suspicion n. 怀疑',
+    'invest v. 投资',
+    'trustworthy adj. 值得信赖的',
+    'spot v. 看见；注意到',
+    'transfer n. 转账；转移',
+  ],
+  //错误选项 analysis题目解析 interference干扰项分析
+  tmp: [
+    '第一步，找定位词：词组定位bank accounts，否定定位avoid being tracked第二步，段落定位：&#91;H&#93; ...“It is <u>hopeless to report</u> fake villa websites to the internet giants who host them,” he says. “I found it <u>impossible to speak to anyone</u>. Also, once one <u>bank account</u> gets reported, they simply use another.”第三步，寻找同义替换题干/原文changing their bank accounts / use anotheravoid being tracked / hopeless to report、impossible to speak to anyone',
+    '第一步，找定位词：否定定位not going on the holiday第二步，段落定位：&#91;E&#93; ...He also suggests asking someone <u>not going on the holiday</u> to have a look at the website. “They might spot problems you don’t spot.”...第三步，寻找同义替换题干/原文people / someonedetect / have a look at、spotfrauds / problems',
+    '第一步，找定位词：大写定位More and more British，否定定位nonexistent第二步，段落定位：&#91;A&#93; During the <u>British</u> winter, the thought of two weeks in a coastal villa (别墅)...For a <u>growing number of people</u>, however... they find that the property they have paid thousands for <u>does not exist</u> ....第三步，寻找同义替换题干/原文More and more / a growing number ofseaside villas / coastal villa、propertynonexistent / does not exist',
+    '第一步，找定位词：词组定位an agent’s name，否定定位avoid falling into traps第二步，段落定位：&#91;K&#93; ...“I Googled the <u>agent’s name</u> and there were lots of complaints about him being a fraudster. If only I’d Googled before but I never thought of it.”...第三步，寻找同义替换题干/原文本题无明显的同义替换，题干是对原文信息的归纳概括。原文指出，一位受害者在谷歌搜索了代理人的名字，发现有很多人抱怨他是骗子。并且她还表示，要是当时提前搜索一下信息就好了。这说明，想要避免受骗，提前在网站上搜索信息是很有必要的。',
+    '第一步，找定位词：否定定位difficult to identify，词组定位an online safety expert第二步，段落定位：&#91;F&#93; ...“There is <u>no way to definitely know</u> who they are,” says <u>Neate</u>....第三步，寻找同义替换题干/原文difficult / no wayidentify / definitely know',
+    '第一步，找定位词：词组定位frequent occurrence第二步，段落定位：&#91;B&#93; Consumers have been warned to be aware of the potential for deception in this market, which is <u>far from uncommon....</u>第三步，寻找同义替换题干/原文Holidaymakers / Consumersalerted / warnedfrequent / far from uncommonfrauds / deception',
+    '第一步，找定位词：词组定位protect themselves from falling victim第二步，段落定位：&#91;I&#93; For now the only way to <u>stop fraudsters</u> appears ultimately to lie in the hands of the consumer.第三步，寻找同义替换题干/原文holidaymakers / consumerprotect themselves from falling victim to frauds / stop fraudsters',
+    '第一步，找定位词：否定定位not to make payments，词组定位bank transfer第二步，段落定位：&#91;E&#93; ...Another potential red flag is being asked to pay by <u>bank transfer</u>... “We generally <u>recommend other forms of payment</u>, like credit card.”第三步，寻找同义替换题干/原文advised / recommendmake payments / pay',
+    '第一步，找定位词：词组定位reasonable prices，否定定位not to be suspected第二步，段落定位：&#91;D&#93; ..<u>.Prices are kept within reasonable ranges</u> to<u> avoid arousing suspicion....</u>第三步，寻找同义替换题干/原文not to be suspected / avoid arousing suspicion',
+  ],
+  options: [
+    {
+      your_answer: 0,
+      correct_answer: 0,
+      analysis:
+        'A选项与音频内容Have you considered making a study guide相对应，其中选项中的a study guide在音频中原词复现，Prepare则与make同义替换，故为正确答案。',
+      interference:
+        'B选项音频未提及，故排除；C选项中的notes为干扰信息，音频并未提及要定期复习笔记，故排除；D选项中的stress-relief为干扰信息，音频并未提及减压相关的课程，故排除。',
+      tyzd: '音频对应处前面男士询问女士是否可以给一些建议，问答之间易出考点，考生需留意接下来的回答。',
+    },
+    {
+      your_answer: 2,
+      correct_answer: 2,
+      analysis: 'C选项与音频内容My main problem is that my study folder ... is badly disorganized视听一致，故为正确答案。',
+      interference:
+        'A选项中的terribly messy在音频中未提及，故排除；B选项音频虽有提及，但并非题目所问的男士在学习中最大的问题，故排除；D选项中的notes为干扰信息，音频并未提及这位男士难以快速记笔记，故排除。',
+      tyzd: '音频对应处出现了main problem is..这样的表达，通常在音频中如果出现main、most或者比较级的表达的话，极易出现考点，考生需留意。',
+    },
+    {
+      your_answer: 1,
+      correct_answer: 1,
+      analysis: 'B选项在音频内容 I’m an emotional learner中原词复现，故为正确答案。',
+      interference:
+        'A、D选项音频虽均有提及，但并非题目所问的女士所属的学习者类型，故排除；C选项为音频中badly organized和learner的杂糅，音频未提及这类学习者，故排除。',
+      tyzd: null,
+    },
+    {
+      your_answer: 0,
+      correct_answer: 0,
+      analysis: 'A选项与音频内容you think I should arrange my notes using color and pictures ... Yes基本视听一致，故为正确答案。',
+      interference:
+        'B选项虽可对应音频中logical learner的学习方式，但与题目所问不符，故排除；C选项音频未提及，故排除；D选项音频虽有提及，但这是这位女士自己作为情感学习者的记笔记方式，与题目所问不符，故排除。',
+      tyzd: '音频对应处出现了表示建议的表达I suggest，之后常常会出现考点，考生需留意。',
     },
   ],
 };

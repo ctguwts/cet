@@ -1,0 +1,53 @@
+.questionCard {
+  background-color: #fff;
+  border-radius: 8px;
+  margin-bottom: 30px;
+  padding: 20px 50px;
+}
+
+//题干
+.questionEnglish {
+  color: rgb(73, 73, 73);
+  font-size: 18px; //正常情况下
+  // font-size: 25px; //仅哔哩哔哩演示用
+  margin: 15px 0px;
+  display: flex;
+  justify-content: space-between;
+
+  .switch {
+    margin-left: 5px;
+  }
+}
+
+.selected {
+  padding-top: 15px;
+  padding-bottom: 15px;
+  background-color: rgb(241, 246, 255);
+  border: 1px solid rgb(90, 142, 254);
+
+  span {
+    color: #4c91ff !important;
+  }
+}
+
+.item {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  margin-left: -30px;
+  padding-left: 30px;
+  border-radius: 8px;
+  position: relative;
+
+  span {
+    font-size: 16px; //正常情况下
+    // font-size: 25px; //仅哔哩哔哩演示用
+    color: #808080;
+  }
+
+  &:hover {
+    span {
+      color: #4c91ff !important;
+    }
+  }
+}

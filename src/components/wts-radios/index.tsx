@@ -65,7 +65,7 @@ export const WtsRadio: React.FC<RadioProps> = (props: RadioProps) => {
 
   return (
     <div className={styles.wrapper}>
-      <div className={styles.item} key={questionIndex + sentense}>
+      <div className={styles.item} style={{ minWidth: sentense ? '150px' : '50px' }} key={questionIndex + sentense}>
         <div
           className={cls(
             styles.circleBase,

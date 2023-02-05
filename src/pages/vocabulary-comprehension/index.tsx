@@ -13,6 +13,7 @@ import ReadingWrapper from '@/components/reading-wrapper';
 
 import styles from './styles.module.scss';
 import TranslationToolip from '@/components/translation-tooltip';
+import PassageAnalysis from '@/components/passage-analysis';
 
 const vocabulary_passage = {
   chinese: [
@@ -120,11 +121,7 @@ const VocabularyComprehension: React.FC<Props> = (props) => {
   //当前需要ToolTip的句子
   const [activeTooltip, setActiveTooltip] = useState('在许多植物中，无法消化的种子皮使种子不受伤害地通过鸟类的消化系统。');
 
-  const {
-    judgementResultModal,
-    closeModal: closeJudgementResultModal,
-    openModal: openJudgementResultModal,
-  } = useJudgementResultModal();
+  const { judgementResultModal, closeModal: closeJudgementResultModal, openModal: openJudgementResultModal } = useJudgementResultModal();
 
   const callback = (event, chinese, english, questionIndex) => {
     event.stopPropagation();
@@ -203,20 +200,7 @@ const VocabularyComprehension: React.FC<Props> = (props) => {
             </TranslationToolip>
           );
         })}
-        {jugementResult ? (
-          <>
-            <div className={styles.translationText}>
-              <div className={styles.translationTitle}>参考译文</div>
-              {translation.map((item) => {
-                return <div dangerouslySetInnerHTML={{ __html: item }}></div>;
-              })}
-            </div>
-            <div className={styles.translationText}>
-              <div className={styles.translationTitle}>材料分析</div>
-              <div>{jugementResult?.passage_abstract}</div>
-            </div>
-          </>
-        ) : null}
+        {jugementResult ? <PassageAnalysis translation={translation} jugementResult={jugementResult} /> : null}
         {selectedWord ? (
           <WordTranslationBox
             mousePoint={mousePoint}

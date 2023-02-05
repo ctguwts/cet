@@ -6,7 +6,7 @@
   justify-content: center;
 }
 .item {
-  min-width: 150px;
+  // min-width: 150px;改为行内样式，如果是长篇阅读，则不要min-width
   border-radius: 6px;
 
   display: flex;
@@ -116,8 +116,10 @@
     border: 1px solid rgb(217, 217, 217);
     border-radius: 6px;
     padding: 5px 10px;
-    font-size: 13px;
+    font-size: 16px;
     font-weight: 500;
     width: fit-content;
+
+    // font-size: 25px; //仅哔哩哔哩演示用
   }
 }

@@ -5,8 +5,8 @@ import { Tooltip, Divider, Modal } from 'antd';
 import WordTranslationBox from '@/components/word-translation-box';
 
 import { Point } from '@/const/types';
-import { vocabulary_judgement_result } from '@/mock-data/data';
-// import QuestionCard from './question-card';
+import { jugement_result_long_reading } from '@/mock-data/data';
+import QuestionCard from './question-card';
 import { getSelectionWord } from '@/utils';
 
 import { useJudgementResultModal } from '@/components/judgement-result-modal';
@@ -14,6 +14,7 @@ import ReadingWrapper from '@/components/reading-wrapper';
 
 import styles from './styles.module.scss';
 import TranslationToolip from '@/components/translation-tooltip';
+import PassageAnalysis from '@/components/passage-analysis';
 
 //英文以.或者.”切割 中文以。或者。”切割
 
@@ -160,42 +161,46 @@ const long_reading_passage = {
   ],
 };
 
-const question_words = [
-  'acknowledge',
-  'chance',
-  'contains',
-  'counterparts',
-  'defined',
-  'differ',
-  'especially',
-  'extracted',
-  'implies',
-  'necessarily',
-  'particular',
-  'perceive',
-  'second',
-  'sources',
-  'strange',
+const questionIndex = [36, 37, 38, 39, 40, 41, 42, 43, 44, 45];
+
+const questionSentences = [
+  'Fraudsters often steal villa-booking information from authentic holiday websites.',
+  'Fraudsters keep changing their bank accounts to avoid being tracked.',
+  'It is suggested that people not going on the holiday might help detect website frauds.',
+  'More and more British holidaymakers find the seaside villas they booked online actually nonexistent.',
+  'By checking an agent’s name online before booking a villa, holidaymakers can avoid falling into traps.',
+  'Fraudsters are difficult to identify, according to an online safety expert.',
+  'Holidaymakers have been alerted to the frequent occurrence of online villa-booking frauds.',
+  'It is holidaymakers that can protect themselves from falling victim to frauds.',
+  'Holidaymakers are advised not to make payments by bank transfer.',
+  'Fraudsters advertise their villas at reasonable prices so as not to be suspected.',
 ];
 
-const question_words_chinese = [
-  ['v. 承认，感谢'],
-  ['adj. 意外的，偶然的偶然的偶然的偶然的偶然的', 'n. 机会，可能性', 'v. 冒险，偶然发生'],
-  ['v-s. 包含，容纳'],
-  ['n-s. 职位或作用相当的人或物'],
-  ['v-ed. 定义，解释'],
-  ['v. 不同于，有区别'],
-  ['adv. 尤其，特别'],
-  ['v-ed. 提取，提炼'],
-  ['v-s. 暗示，表明'],
-  ['adv. 必然地'],
-  ['adj. 特别的，格外的'],
-  ['v. 感知，认为'],
-  ['n. 秒，片刻', 'adj. 第二的', 'adv. 第二'],
-  ['n-s. 来源', 'v-s. 来自'],
-  ['adj. 奇怪的'],
+const questionSentencesChinese = [
+  '诈骗者通常会从真实的度假网站上窃取一些别墅预定的信息。',
+  '为了避免被追踪，诈骗者会不断更换银行账户。',
+  '有人建议不去度假的人可能有助于察觉网站骗局。',
+  '越来越多的英国度假者发现他们在网站上预定的海滨别墅其实并不存在。',
+  '度假者在预定别墅之前，在网上核实一下代理人的名字可以避免掉入陷阱。',
+  '根据一位网络安全专家所言，诈骗者很难被识别。',
+  '度假者们已经对那些频繁发生的网络别墅预定诈骗行为有所警觉。',
+  '只有度假者本人能够保护自己避免沦为网络诈骗的受害者。',
+  '度假者被建议不要通过银行转账的方式进行支付。',
+  '诈骗者为了避免被怀疑，会以一个合理的价格对他们的度假别墅进行宣传。',
 ];
-const question_index = [26, 27, 28, 29, 30, 31, 32, 33, 34, 35];
+
+const options = [
+  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
+  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
+  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
+  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
+  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
+  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
+  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
+  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
+  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
+  ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K'],
+];
 
 const translation = [
   '<b>关于虚假度假别墅网站的安全警示</b>',
@@ -240,11 +245,7 @@ const LongReading: React.FC<Props> = (props) => {
   //当前需要ToolTip的句子
   const [activeTooltip, setActiveTooltip] = useState('在许多植物中，无法消化的种子皮使种子不受伤害地通过鸟类的消化系统。');
 
-  const {
-    judgementResultModal,
-    closeModal: closeJudgementResultModal,
-    openModal: openJudgementResultModal,
-  } = useJudgementResultModal();
+  const { judgementResultModal, closeModal: closeJudgementResultModal, openModal: openJudgementResultModal } = useJudgementResultModal();
 
   const callback = (event, chinese, english, questionIndex) => {
     event.stopPropagation();
@@ -283,7 +284,7 @@ const LongReading: React.FC<Props> = (props) => {
     //此处发起网络请求，把答案提交给后端
     console.log('提交，提交网络请求');
     console.log('提交的作答是', allSelected);
-    setJudgementResult(vocabulary_judgement_result);
+    setJudgementResult(jugement_result_long_reading);
     openJudgementResultModal();
   };
 
@@ -294,14 +295,15 @@ const LongReading: React.FC<Props> = (props) => {
   return (
     <ReadingWrapper clickOuter={clickOuter} okHandler={okHandler} topBarTitle='2022年卷二段落匹配'>
       <div className={styles.left}>
-        {/* {question_index.map((item, index) => {
+        {questionIndex.map((item, index) => {
           return (
             <QuestionCard
-              questionWords={question_words}
-              questionIndex={question_index[index]}
-              questionWordsChinese={question_words_chinese}
-              setActiveWord={setActiveTooltip}
-              activeWord={activeTooltip}
+              questionSentences={questionSentences[index]}
+              questionIndex={questionIndex[index]}
+              questionSentencesChinese={questionSentencesChinese[index]}
+              options={options}
+              setActiveTooltip={setActiveTooltip}
+              activeTooltip={activeTooltip}
               clickCallback={callback}
               allSelected={allSelected}
               wrongOptions={jugementResult?.options[index]}
@@ -309,8 +311,7 @@ const LongReading: React.FC<Props> = (props) => {
                 setAllSelected(tmpList);
               }}></QuestionCard>
           );
-        })} */}
-        我是左侧题目
+        })}
       </div>
       <div className={styles.content} id='vocabulary_comprehension_content'>
         {long_reading_passage?.chinese.map((item, index) => {
@@ -324,20 +325,7 @@ const LongReading: React.FC<Props> = (props) => {
             </TranslationToolip>
           );
         })}
-        {jugementResult ? (
-          <>
-            <div className={styles.translationText}>
-              <div className={styles.translationTitle}>参考译文</div>
-              {translation.map((item) => {
-                return <div dangerouslySetInnerHTML={{ __html: item }}></div>;
-              })}
-            </div>
-            <div className={styles.translationText}>
-              <div className={styles.translationTitle}>材料分析</div>
-              <div>{jugementResult?.passage_abstract}</div>
-            </div>
-          </>
-        ) : null}
+        {jugementResult ? <PassageAnalysis translation={translation} jugementResult={jugementResult} /> : null}
         {selectedWord ? (
           <WordTranslationBox
             mousePoint={mousePoint}
