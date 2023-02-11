@@ -118,6 +118,7 @@ const AudioPlayer: React.FC<Props> = (props: Props) => {
     if (!scrollElement) return;
     //scrollTop被卷去部分的距离，offsetTop是当前active句子距离body顶部的距离（为什么是body，因为他是最近定位元素）
     textContainer.scrollTop = scrollElement?.offsetTop - 400;
+    textContainer.scrollTop = scrollElement?.offsetTop - 500; //仅哔哩哔哩演示用
   }, [finalIndex]);
 
   const timeEnded = () => {

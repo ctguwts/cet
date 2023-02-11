@@ -4,6 +4,7 @@ import ReadingDetail from '@/pages/reading-detail';
 import VocabularyComprehension from '@/pages/vocabulary-comprehension';
 import LongReading from '@/pages/long-reading';
 import LongConservation from '@/pages/long-conversation';
+import LoginPage from '@/pages/log-in';
 import Text from '@/pages/text';
 import Main from '@/pages/main';
 
@@ -35,6 +36,10 @@ export default [
   {
     path: '/',
     element: <Navigate to='/main' />,
+  },
+  {
+    path: 'log-in',
+    element: <LoginPage />,
   },
   {
     path: '/text',
