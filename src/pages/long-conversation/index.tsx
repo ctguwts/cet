@@ -5,145 +5,19 @@ import { Tooltip, Divider, Modal } from 'antd';
 import WordTranslationBox from '@/components/word-translation-box';
 
 import { Point } from '@/const/types';
-import { jugement_result_long_conversation } from '@/mock-data/data';
 import QuestionCard from './question-card';
 import { getSelectionWord } from '@/utils';
-
-import { useJudgementResultModal } from '@/components/judgement-result-modal';
 import ReadingWrapper from '@/components/reading-wrapper';
+
+import { before_submit, after_submit as jugement_result_long_conversation } from '@/mock-data/data-long-conversation';
+import { useJudgementResultModal } from '@/components/judgement-result-modal';
 
 import styles from './styles.module.scss';
 import TranslationToolip from '@/components/translation-tooltip';
 
 import AudioPlayer from '@/components/audio-player';
 
-const currentLyrics = [
-  3003, 5021, 9016, 10094, 14051, 19060, 28036, 31013, 39085, 42000, 48041, 58072, 60087, 63099, 72085, 80070, 87060, 94038, 108023, 114097, 120090,
-  129011, 130081, 135052, 141078, 160054, 181005, 200096,
-];
-
-const englishArr = [
-  'M: Hi, Jennifer.',
-  'I’m really struggling with this semester’s workload.',
-  'Do you have any advice?',
-  'W:  Have you considered making a study guide?',
-  'It’s a tool you can make yourself to take the stress out of studying.',
-  'I’ve been using one since the start of last semester, and it has really helped relieve a lot of study pressure.',
-  'M: Sounds like just what I need.',
-  'My main problem is that my study folder is full of notes and worksheets, and is badly disorganized.',
-  'I don’t know where to start.',
-  'W: Okay.Well, the main thing is to have everything in the right place.',
-  'Whatever you’re reviewing, it’s important that it’s arranged for your particular needs of that subject, and in the most user-friendly way you can.',
-  'What kind of learner are you?',
-  'M: Um, I’m not sure.',
-  'W: Well, visual learners prefer using images, pictures, colors and maps to organize information.',
-  'Logical learners have a linear mind and would rather use logic, reasoning and systems.',
-  'I’m an emotional learner, which means I need to connect to information emotionally to understand it.',
-  'M: Oh!I’m very much dependent on vision as a way of taking in information.',
-  'W:  Well, I suggest reorganizing your notes using color-coded sections in your study guides, or using idea mapping to lay out the information and make it more quickly accessible.',
-  'M: So you think I should arrange my notes using color and pictures in place of text.',
-  'W: Yes, you’ll probably start to grasp information a lot quicker that way.',
-  'As an emotional learner, I organize my notes into a story that I can connect to and recite to myself.',
-  'M: That’s amazing.',
-  'I didn’t know there were so many different ways to learn.',
-  'Questions 12 to 15 are based on the conversation you have just heard.',
-  'Question 12 What does the woman advise the man do?',
-  'Question 13 What is the biggest problem the man has with his studies?',
-  'Question 14 What kind of learner does the woman say she is?',
-  'Question 15 What does the woman think the man can do with his notes?',
-];
-
-const chineseArr = [
-  'M：你好，詹妮弗。',
-  '这学期的课业负担让我很头疼。',
-  '你有什么建议吗？',
-  'W：你考虑过制作一个学习指南吗？',
-  '这是一个你可以让自己减轻学习压力的工具。',
-  '我从上学期开始就一直使用它，它确实帮助我缓解了很多学习压力。',
-  'M：听起来正是我所需要的。',
-  '我的主要问题是我的学习文件夹里装满了笔记和工作表，而且非常混乱。',
-  '我不知道该从哪里开始。',
-  'W：好的。嗯，最重要的是把所有的东西都放在正确的地方。',
-  '无论你在复习什么，重要的是要根据你对这门学科的特定需求，以最方便使用的方式进行整理。',
-  '你是什么样的学习者？',
-  'M：嗯，我不确定。',
-  'W：视觉型学习者更倾向于使用图像、图片、颜色和导图来组织信息。',
-  '逻辑学习者是线性思维，他们更愿意使用逻辑、推理和系统（性地学习）。',
-  '我是一个情感型学习者，这意味着我需要从情感上与信息联系起来才能理解它。',
-  'M：哦！我非常依赖将视觉作为一种获取信息的方式。',
-  'W：嗯，我建议在你的学习指南中使用颜色编码来重新组织你的笔记，或者使用思维导图来布局信息，使其更容易被理解。',
-  'M：所以你认为我应该用颜色和图片代替文字来整理我的笔记。',
-  'W：是的，这样你可能会开始更快地掌握信息。',
-  '作为一个情感型学习者，我把我的笔记整理成一个故事，这样我就可以把它联系起来并背诵给自己听。',
-  'M：太棒了。',
-  '我不知道原来有那么多不同的学习方式。',
-  '第 12 至 15 题是根据您刚才听到的对话提出的。',
-  '问题12：女士建议男士做什么?',
-  '问题13：男士在学习中最大的问题是什么？',
-  '问题14：女士说她是一个什么样的学习者？',
-  '问题15：女士认为男士可以怎样做笔记？',
-];
-
-const englishClueArr = [
-  'M: Hi, Jennifer. I’m really struggling with this semester’s workload. Do you have any advice?',
-  'W: (12) <u>Have you considered making a study guide</u>? It’s a tool you can make yourself to take the stress out of studying. I’ve been using one since the start of last semester, and it has really helped relieve a lot of study pressure.',
-  'M: Sounds like just what I need. (13) <u>My main problem is that my study folder is full of notes and worksheets, and is badly disorganized.</u> I don’t know where to start.',
-  'W: Okay. Well, the main thing is to have everything in the right place. Whatever you’re reviewing, it’s important that it’s arranged for your particular needs of that subject, and in the most user-friendly way you can. What kind of learner are you?',
-  'M: Um, I’m not sure.',
-  'W: Well, visual learners prefer using images, pictures, colors and maps to organize information. Logical learners have a linear mind and would rather use logic, reasoning and systems. (14) <u>I’m an emotional learner, which means I need to connect to information emotionally to understand it.</u>',
-  'M: Oh! I’m very much dependent on vision as a way of taking in information.',
-  'W: (15) <u>Well, I suggest reorganizing your notes using color-coded sections in your study guides, or using idea mapping to lay out the information and make it more quickly accessible.</u>',
-  'M: <u>So you think I should arrange my notes using color and pictures in place of text.</u>',
-  'W: <u>Yes,</u> you’ll probably start to grasp information a lot quicker that way. As an emotional learner, I organize my notes into a story that I can connect to and recite to myself.',
-  'M: That’s amazing. I didn’t know there were so many different ways to learn.',
-  'Questions 12 to 15 are based on the conversation you have just heard.',
-  'Question 12 What does the woman advise the man do?',
-  'Question 13 What is the biggest problem the man has with his studies?',
-  'Question 14 What kind of learner does the woman say she is?',
-  'Question 15 What does the woman think the man can do with his notes?',
-];
-
-const chineseClueArr = [
-  'M：你好，詹妮弗。这学期的课业负担让我很头疼。你有什么建议吗？',
-  'W：（12）<u>你考虑过制作一个学习指南吗？这是一个你可以让自己减轻学习压力的工具。我从上学期开始就一直使用它，它确实帮助我缓解了很多学习压力。</u>',
-  'M：听起来正是我所需要的。（13）<u>我的主要问题是我的学习文件夹里装满了笔记和工作表，而且非常混乱。</u>我不知道该从哪里开始。',
-  'W：好的。嗯，最重要的是把所有的东西都放在正确的地方。无论你在复习什么，重要的是要根据你对这门学科的特定需求，以最方便使用的方式进行整理。你是什么样的学习者？',
-  'M：嗯，我不确定。',
-  'W：视觉型学习者更倾向于使用图像、图片、颜色和导图来组织信息。逻辑学习者是线性思维，他们更愿意使用逻辑、推理和系统（性地学习）。（14）<u>我是一个情感型学习者，这意味着我需要从情感上与信息联系起来才能理解它。</u>',
-  'M：哦！我非常依赖将视觉作为一种获取信息的方式。',
-  'W：（15）<u>嗯，我建议在你的学习指南中使用颜色编码来重新组织你的笔记，或者使用思维导图来布局信息，使其更容易被理解。</u>',
-  'M：所以你认为我应该用颜色和图片代替文字来整理我的笔记。',
-  'W：是的，这样你可能会开始更快地掌握信息。作为一个情感型学习者，我把我的笔记整理成一个故事，这样我就可以把它联系起来并背诵给自己听。',
-  'M：太棒了。我不知道原来有那么多不同的学习方式。',
-  '问题12：女士建议男士做什么?',
-  '问题13：男士在学习中最大的问题是什么？',
-  '问题14：女士说她是一个什么样的学习者？',
-  '问题15：女士认为男士可以怎样做笔记？',
-];
-
-const optionEnglish = [
-  ['Prepare a study guide.', 'Consult his advisors.', 'Go over his notes regularly.', 'Take stress-relief sessions.'],
-  [
-    'His worksheets are terribly messy.',
-    'He finds the workload too heavy.',
-    'His study folder is badly disorganized.',
-    'He has difficulty taking notes quickly.',
-  ],
-  ['A visual learner.', 'An emotional learner.', 'An organized learner.', 'A logical learner.'],
-  [
-    'Arrange them using color and pictures.',
-    'Restructure them in a logical way.',
-    'Commit them to memory after class.',
-    'Organize them into a well-connected story.',
-  ],
-];
-
-const optionsChinese = [
-  ['准备一份学习指南。', '咨询他的指导老师。', '定期复习他的笔记。', '参加减压课程。'],
-  ['他的活页练习题非常凌乱。', '他觉得工作量太繁重。', '他的学习文件夹非常混乱。', '他难以快速记笔记。'],
-  ['视觉学习者。', '情感学习者。', '有条理的学习者。', '逻辑学习者。'],
-  ['使用色彩和图画整理它们。', '以逻辑的方式重组它们。', '下课后牢记它们。', '将它们整理成一个联系紧密的故事。'],
-];
+const { currentLyrics, englishArr, chineseArr, englishClueArr, chineseClueArr, optionEnglish, optionsChinese, questionIndex } = before_submit;
 
 const tyzd = [
   '音频对应处前面男士询问女士是否可以给一些建议，问答之间易出考点，考生需留意接下来的回答。',
@@ -158,8 +32,6 @@ const interference = [
   'A、D选项音频虽均有提及，但并非题目所问的女士所属的学习者类型，故排除；C选项为音频中badly organized和learner的杂糅，音频未提及这类学习者，故排除。',
   'B选项虽可对应音频中logical learner的学习方式，但与题目所问不符，故排除；C选项音频未提及，故排除；D选项音频虽有提及，但这是这位女士自己作为情感学习者的记笔记方式，与题目所问不符，故排除。',
 ];
-
-const questionIndex = [12, 13, 14, 15];
 
 const translation = [
   '<b>关于虚假度假别墅网站的安全警示</b>',
@@ -253,7 +125,7 @@ const LongConversation: React.FC<Props> = (props) => {
   }, [activeTooltip]);
 
   return (
-    <ReadingWrapper clickOuter={clickOuter} okHandler={okHandler} topBarTitle='2022年6月长对话' rightNoPadding={true}>
+    <ReadingWrapper clickOuter={clickOuter} okHandler={okHandler} topBarTitle=' 2012年6月卷一长对话2' rightNoPadding={true}>
       <div className={styles.left}>
         {questionIndex.map((item, index) => {
           return (

@@ -3,7 +3,7 @@ import cls from 'classnames';
 import { Slider, Radio, Dropdown, Space, Tooltip } from 'antd';
 import type { MenuProps } from 'antd';
 import { PlayCircleFilled, PauseCircleFilled, RetweetOutlined } from '@ant-design/icons';
-import audioSrc from './2.mp3';
+import audioSrc from './audio.mp3';
 import { formatMinuteSecond } from '@/utils/format-utils';
 import styles from './styles.module.scss';
 
@@ -305,6 +305,7 @@ const AudioPlayer: React.FC<Props> = (props: Props) => {
                     __html: chineseClueArr[index],
                   }}
                 />
+                <br />
               </div>
             );
           })}
