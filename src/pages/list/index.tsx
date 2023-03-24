@@ -1,6 +1,7 @@
 import React, { memo, Suspense, useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Breadcrumb, Button, Tabs } from 'antd';
+import { useNavigate } from 'react-router-dom';
 
 import Menu from '@/components/menu';
 import PersonalArchive from './components/personal-archive';
@@ -8,12 +9,7 @@ import { list_data } from '@/mock-data/data';
 import InfoCard from './components/info-card';
 import Ranking from './components/ranking';
 
-import {
-  VOCABULARYCOMPREHENSION,
-  LONGREADING,
-  CAREFULREADING,
-  nameMapping,
-} from '@/const/index';
+import { VOCABULARYCOMPREHENSION, LONGREADING, CAREFULREADING, nameMapping } from '@/const/index';
 
 import styles from './styles.module.scss';
 
@@ -40,6 +36,7 @@ const List: React.FC<Props> = (props) => {
   const [requestRes, setRequestRes] = useState([]);
   const location = useLocation();
   const jumpParam = location?.state?.jumpParam;
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCurrentTab(jumpParam);
@@ -90,13 +87,24 @@ const List: React.FC<Props> = (props) => {
               //一个group是一年的卡片（6张，3个6月，3个12月）
               return (
                 <div className={styles.oneYear}>
-                  <div
-                    className={styles.yearTitle}>{`${group.groupTitle}`}</div>
+                  <div className={styles.yearTitle}>{`${group.groupTitle}`}</div>
                   <div className={styles.groupCards}>
                     {group?.list?.map((item) => {
                       return (
                         <div className={styles.infoCard}>
                           <InfoCard {...item} />
+                          <button
+                            onClick={() => {
+                              navigate('/long-conversation');
+                            }}>
+                            long-conversation
+                          </button>
+                          <button
+                            onClick={() => {
+                              navigate('/long-reading');
+                            }}>
+                            long-reading
+                          </button>
                         </div>
                       );
                     })}
