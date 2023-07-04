@@ -1,5 +1,6 @@
 import React, { memo, Suspense } from 'react';
 import { Button } from 'antd';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
 
 import { formateCardTitle } from '@/utils';
 
@@ -18,7 +19,8 @@ const InfoCard: React.FC<Props> = (props) => {
 
   return (
     <div className={styles.card}>
-      <img src={img} width='260px' height='194px' className={styles.img} />
+      <LazyLoadImage src={img} width='260px' height='194px' />
+      {/* <img src={img} width='260px' height='194px' className={styles.img} /> */}
       <div className={styles.cssMask}>
         {title}
         <div className={styles.jumpButton}>{cardType}</div>
